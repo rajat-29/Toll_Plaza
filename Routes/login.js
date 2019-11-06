@@ -27,4 +27,8 @@ app.post('/checklogin',function (req, res)  {
     })     
 })
 
+app.get('/home', function (req,res) {
+	res.render('dashboard',{data:req.session});
+})
+
 module.exports = app;
