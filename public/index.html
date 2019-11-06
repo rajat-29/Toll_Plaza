@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Page</title>
+    <title>Toll Management System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-dark">
+<body class="body">
 
-    <div class="sufee-login d-flex align-content-center flex-wrap">
+    <div class="content-wrapper">
         <div class="container">
-            <div class="login-content">
-                <div class="login-logo">
-                        <h2 style="color: #fff">Toll Management System</h2>
+            <div class="row pad-botm">
+                <div class="col-md-12">
+                    <h1 class="header-line">Login Here</h1>
                 </div>
-                <div class="login-form">
+            </div>
 
-                        <div class="form-group">
-                            <label>User Name</label>
-                           <input class="form-control" id="email_add" type="text" placeholder="Enter Email" required="true" name="username">
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" id="user_pass" class="form-control" name="password" placeholder="Enter Password" required="true">
-                        </div>
+            <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <div class="panel panel-info">
+            <div class="panel-heading">
+                Login 
+            </div>
+            <div class="panel-body">
+            <div class="form-group">
+                <label>Email<span style="color:red;">*</span></label>
+                <input class="form-control" type="text" name="bookname" id="email_add"  placeholder="Enter Your Email" autocomplete="off"  required />
+            </div>
 
-                        <button type="submit" id="submit_btn" name="login" class="btn btn-success btn-flat m-b-30 m-t-30">Log in</button>
-                      
-                </div>
+            <div class="form-group">
+                <label>Password<span style="color:red;">*</span></label>
+                <input class="form-control" type="password" name="isbn"  id="user_pass" placeholder="Enter Your Password" required="required" autocomplete="off"  />
+            </div>
+
+            <div class="form-group" style="margin: 10px">
+                 <button class="btn btn-success" id="submit_btn">Login</button>
+            </div>                   
+            </div>
+            </div>
+            </div>
             </div>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <div class="footer-section">
+        <p>Toll Management © 2019</p>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
 </body>
 </html>
