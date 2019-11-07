@@ -7,11 +7,13 @@ app.use(express.static(path.join(__dirname,'../public')));
 var mongoose = require('mongoose')
 var category = require('../Models/categorySchema');
 
-app.get('/addCategory', function(req,res) {
+var auth = require('../MiddleWares/auth');
+
+app.get('/addCategory',auth, function(req,res) {
 	res.render('add_category');
 })
 
-app.post('/addnewCategory', function(req,res) {
+app.post('/addnewCategory',auth, function(req,res) {
      category.create(req.body,function(error,result)
       {
         if(error)
@@ -21,7 +23,7 @@ app.post('/addnewCategory', function(req,res) {
      res.send("data saved");
 })
 
-app.post('/checkcategory',function (req, res) {
+app.post('/checkcategory',auth,function (req, res) {
      category.findOne({name: req.body.name}, function(error,result)
       {
         if(error)

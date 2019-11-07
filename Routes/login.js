@@ -7,6 +7,8 @@ app.use(express.static(path.join(__dirname,'../public')));
 var mongoose = require('mongoose')
 var users = require('../Models/userSchema');
 
+var auth = require('../MiddleWares/auth');
+
 app.post('/checklogin',function (req, res)  {
     req.session.isLogin = 0;
     users.findOne({email: req.body.name}, function(error,result)
@@ -27,7 +29,7 @@ app.post('/checklogin',function (req, res)  {
     })     
 })
 
-app.get('/home', function (req,res) {
+app.get('/home',auth, function (req,res) {
 	res.render('dashboard',{data:req.session});
 })
 
