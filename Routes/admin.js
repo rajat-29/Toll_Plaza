@@ -119,4 +119,71 @@ app.post('/checkemail',auth,function (req, res) {
       })
 })
 
+app.get('/manageStaff',auth, function(req,res) {
+  res.render('manage_staff');
+})
+
+app.post('/showStaff' ,auth, function(req, res) {
+  let query = {};
+  let params = {};
+
+  if(req.body.search.value) {
+     query["$or"]= [{
+            "name":  { '$regex' : req.body.search.value, '$options' : 'i' }
+        }, {
+            "email":{ '$regex' : req.body.search.value, '$options' : 'i' }
+        },{
+            "role": { '$regex' : req.body.search.value, '$options' : 'i' }
+        },{
+            "phone":  { '$regex' : req.body.search.value, '$options' : 'i' }
+        }]
+  }
+  else{
+      delete query["$or"];
+  }
+  
+  let sortingType;
+  if(req.body.order[0].dir === 'asc')
+    sortingType = 1;
+  else
+    sortingType = -1;
+
+    if(req.body.order[0].column === '0')
+        params = {skip : parseInt(req.body.start) , limit : parseInt(req.body.length), sort : {phone : sortingType}};
+
+        users.find(query , {} , params , function (err , data)
+        {
+            if(err)
+                console.log(err);
+            else {
+                users.countDocuments(query, function(err , filteredCount)
+                {
+                    if(err)
+                        console.log(err);
+                    else {
+                        users.countDocuments(function (err, totalCount)
+                        {
+                            if(err)
+                                console.log(err);
+                            else
+                                res.send({"recordsTotal": totalCount,
+                                    "recordsFiltered": filteredCount, data});
+                        })
+                    }
+                });
+            }
+        })
+})
+
+app.delete('/students/:pro',auth,function(req,res) {
+      var id = req.params.pro.toString();
+      users.deleteOne({ "_id": id },function(err,result)
+      {
+          if(err)
+          throw error
+          else
+              res.send("data deleted SUCCESFULLY")
+      });
+ })
+ 
 module.exports = app;
