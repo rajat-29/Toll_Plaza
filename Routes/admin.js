@@ -5,6 +5,7 @@ let path = require('path');
 app.use(express.static(path.join(__dirname,'../public')));
 
 var mongoose = require('mongoose')
+var users = require('../Models/userSchema');
 var category = require('../Models/categorySchema');
 
 var auth = require('../MiddleWares/auth');
@@ -90,5 +91,32 @@ app.delete('/category/:pro',auth,function(req,res) {
             res.send("data deleted SUCCESFULLY")
       });
  })
+
+app.get('/addStaff',auth, function(req,res) {
+  res.render('add_staff');
+})
+
+app.post('/addnewuser',auth, function(req,res) {
+  users.create(req.body,function(error,result)
+  {
+        if(error)
+        throw error;
+        else{}
+  })         
+  res.send("data saved");
+})
+
+app.post('/checkemail',auth,function (req, res) {
+     users.findOne({email: req.body.email}, function(error,result)
+      {
+        if(error)
+        throw error;
+
+      if(!result)
+        res.send("false");
+      else 
+          res.send("true");
+      })
+})
 
 module.exports = app;
