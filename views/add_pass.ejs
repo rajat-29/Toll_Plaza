@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Add Staff</title>
+    <title>Add Pass</title>
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
     <link href="css/style.css" rel="stylesheet" />
@@ -16,13 +16,13 @@
     <script src="js/dashboard.js"></script>
 </head>
 
-<body class="body">
+<body class="body" onload="fetchselectoptions()">
         <% include partials/top-bar.ejs %>
         <div class="content-wrapper">
          <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
-                <h4 class="header-line">Add Staff</h4>    
+                <h4 class="header-line">Add Pass</h4>    
             </div>
 
 </div>
@@ -34,50 +34,56 @@
 
 <div class="panel panel-info">
 <div class="panel-heading">
-Staff Info
+Pass Info
 </div>
 <div class="panel-body">
 
 <div class="form-group">
-<label>Name</label>
-<input class="form-control" type="text" name="author" autocomplete="off" id="staff_name" placeholder="Enter Name" required />
+<label>Vehicle Category</label>
+<select class="form-control" name="author" required="required" id="vehicle_category">
+</select>
 </div>
 
 <div class="form-group">
-<label>Email</label>
-<input class="form-control" type="text" name="author" autocomplete="off" id="staff_email" placeholder="Enter Email" onchange="email_avail()" required />
+<label>Registration Number</label>
+<input class="form-control" type="text" name="author" autocomplete="off" id="reg_number" placeholder="Enter Registration Number"  required />
 </div>
 
 <div class="form-group">
-<label>Password</label>
-<input class="form-control" type="password" name="author" autocomplete="off" id="staff_password" placeholder="Enter Password" required />
+<label>Validity From</label>
+<input class="form-control" type="date" name="author" autocomplete="off" id="validity_from" placeholder="Enter Password" required />
 </div>
+
+<div class="form-group">
+<label>Validity To</label>
+<input class="form-control" type="date" name="author" autocomplete="off" id="validity_to" placeholder="Enter Address" required />
+</div>
+
+<div class="form-group">
+<label>Applicant Name</label>
+<input class="form-control" type="text" name="author" autocomplete="off" id="applicant_name" placeholder="Enter Applicant Name Number"  required />
+</div>
+
+
+<div class="form-group">
+<label>Age</label>
+<input class="form-control" type="number" name="author" autocomplete="off" id="applicant_age" placeholder="Enter Applicant Age"  required />
+</div>
+
 
 <div class="form-group">
 <label>Address</label>
-<input class="form-control" type="text" name="author" autocomplete="off" id="staff_address" placeholder="Enter Address" required />
+<input class="form-control" type="text" name="author" autocomplete="off" id="applicant_address" placeholder="Enter Applicant Address" required />
 </div>
-
-<div class="form-group">
-<label>Gender</label>
-<select class="form-control" name="author" required="required" id="staff_gender">
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-</select>
-</div>
-
-<div class="form-group">
-<label>Role</label>
-<select class="form-control" name="author" required="required" id="staff_role">
-    <option value="Staff">Staff</option>
-    <option value="Admin">Admin</option>
-</select>
-</div>
-
 
 <div class="form-group">
 <label>Phone</label>
-<input class="form-control" type="number" name="author" autocomplete="off" id="staff_phone" placeholder="Enter Phone" required />
+<input class="form-control" type="number" name="author" autocomplete="off" id="applicant_phone" placeholder="Enter Applicant Address" required />
+</div>
+
+<div class="form-group">
+<label>Balance</label>
+<input class="form-control" type="number" name="author" autocomplete="off" id="applicant_balance" placeholder="Enter Applicant Balance" required />
 </div>
 
 <button type="submit" name="create" id="submitStudent" class="btn btn-info">Update </button>
@@ -92,7 +98,7 @@ Staff Info
         <p>Toll Management © 2019</p>
     </div>
             
-    <script type="text/javascript" src="js/addStaff.js"></script>
+    <script type="text/javascript" src="js/addPass.js"></script>
     <script src="js/bootstrap.js"></script> 
 </body>
 </html>

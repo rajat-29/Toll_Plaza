@@ -7,6 +7,7 @@ app.use(express.static(path.join(__dirname,'../public')));
 var mongoose = require('mongoose')
 var users = require('../Models/userSchema');
 var category = require('../Models/categorySchema');
+var passes = require('../Models/passSchema');
 
 var auth = require('../MiddleWares/auth');
 
@@ -184,6 +185,101 @@ app.delete('/students/:pro',auth,function(req,res) {
           else
               res.send("data deleted SUCCESFULLY")
       });
- })
+})
+
+app.get('/addPass',auth, function(req,res) {
+  res.render('add_pass');
+})
+
+app.get('/categoryOptions',auth,function (req, res)  {
+    category.find({status: 'Active'}, function(error,result)
+    {
+        if(error)
+        throw error;
+        else
+          res.send(JSON.stringify(result));
+    })
+})
+
+app.post('/addnewpass',auth, function(req,res) {
+  passes.create(req.body,function(error,result)
+  {
+        if(error)
+        throw error;
+        else{}
+  })         
+  res.send("data saved");
+})
+
+app.get('/managePass',auth, function(req,res) {
+  res.render('manage_pass');
+})
+
+app.post('/showPass' ,auth, function(req, res) {
+  let query = {};
+  let params = {};
+
+  if(req.body.search.value) {
+     query["$or"]= [{
+            "category":  { '$regex' : req.body.search.value, '$options' : 'i' }
+        }, {
+            "registration":{ '$regex' : req.body.search.value, '$options' : 'i' }
+        },{
+            "name": { '$regex' : req.body.search.value, '$options' : 'i' }
+        },{
+            "address":  { '$regex' : req.body.search.value, '$options' : 'i' }
+        },{
+            "phone": { '$regex' : req.body.search.value, '$options' : 'i' }
+        },{
+            "balance":  { '$regex' : req.body.search.value, '$options' : 'i' }
+        }]
+  }
+  else{
+      delete query["$or"];
+  }
+  
+  let sortingType;
+  if(req.body.order[0].dir === 'asc')
+    sortingType = 1;
+  else
+    sortingType = -1;
+
+    if(req.body.order[0].column === '0')
+        params = {skip : parseInt(req.body.start) , limit : parseInt(req.body.length), sort : {phone : sortingType}};
+
+        passes.find(query , {} , params , function (err , data)
+        {
+            if(err)
+                console.log(err);
+            else {
+                passes.countDocuments(query, function(err , filteredCount)
+                {
+                    if(err)
+                        console.log(err);
+                    else {
+                        passes.countDocuments(function (err, totalCount)
+                        {
+                            if(err)
+                                console.log(err);
+                            else
+                                res.send({"recordsTotal": totalCount,
+                                    "recordsFiltered": filteredCount, data});
+                        })
+                    }
+                });
+            }
+        })
+})
  
+app.delete('/passes/:pro',auth,function(req,res) {
+      var id = req.params.pro.toString();
+      passes.deleteOne({ "_id": id },function(err,result)
+      {
+          if(err)
+          throw error
+          else
+              res.send("data deleted SUCCESFULLY")
+      });
+})
+
 module.exports = app;

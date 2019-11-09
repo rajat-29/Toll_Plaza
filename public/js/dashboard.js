@@ -13,3 +13,12 @@ function addStaff() {
 function manageStaff() {
 	window.location = "/admin/manageStaff";
 }
+
+function addPass() {
+	window.location = "/admin/addPass";
+}
+
+function managePass() {
+	window.location = "/admin/managePass";
+}
+
