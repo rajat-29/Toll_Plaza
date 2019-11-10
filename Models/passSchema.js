@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 var passSchema = new mongoose.Schema({
 	category : String,
 	registration : String,
-	validityFrom : String,
-	validityTo : String,
+	validityFrom : Date,
+	validityTo : Date,
 	name : String,
 	age : String,
 	address : String,

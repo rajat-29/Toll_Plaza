@@ -22,3 +22,7 @@ function managePass() {
 	window.location = "/admin/managePass";
 }
 
+function betweenDatesPass() {
+	window.location = "/admin/betweenDatesPass";
+}
+
