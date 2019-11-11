@@ -26,6 +26,10 @@ function betweenDatesPass() {
 	window.location = "/admin/betweenDatesPass";
 }
 
+function passCount() {
+	window.location = "/admin/passCount";
+}
+
 function passSales() {
 	window.location = "/admin/passSales";
 }

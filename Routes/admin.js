@@ -330,6 +330,29 @@ app.post('/findBetweenDatePass',auth,function (req, res)  {
         })
 })
 
+app.get('/passCount',auth, function(req,res) {
+  res.render('passCount');
+})
+
+
+app.post('/FindpassesCount',auth, function(req,res) {
+  passes.aggregate(
+         [{
+          $project : {
+            month : {$month : "$validityFrom"},
+            year : {$year : "$validityFrom"},
+            balance : 1
+          }},
+          {
+            $group : {
+              _id : {month : "$month",year : "$year"},
+              total : {$sum : 1}
+            }}
+         ],function (err,result) {
+           res.send(result)
+         })
+})
+
 app.get('/passSales',auth, function(req,res) {
   res.render('passSales');
 })
@@ -350,22 +373,6 @@ app.post('/FindpassesSale',auth, function(req,res) {
          ],function (err,result) {
            res.send(result);
          })
-
-  // passes.aggregate(
-  //        [{
-  //         $project : {
-  //           month : {$month : "$validityFrom"},
-  //           year : {$year : "$validityFrom"},
-  //           balance : 1
-  //         }},
-  //         {
-  //           $group : {
-  //             _id : {month : "$month",year : "$year"},
-  //             total : {$sum : 1}
-  //           }}
-  //        ],function (err,result) {
-  //          console.log(result)
-  //        })
 })
 
 module.exports = app;
