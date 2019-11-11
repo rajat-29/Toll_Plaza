@@ -9,6 +9,7 @@ submitbtn.addEventListener("click", function () {
         alert("Field  is Empty");
         return;
     }
+
     $('#studentListing').DataTable().destroy()
         $(document).ready(function() {
       var table = $('#studentListing').DataTable({

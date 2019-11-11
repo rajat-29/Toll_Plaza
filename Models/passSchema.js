@@ -10,7 +10,7 @@ var passSchema = new mongoose.Schema({
 	age : String,
 	address : String,
 	phone : String,
-	balance : String,
+	balance : Number,
 })
 
 module.exports =  mongoose.model('passes', passSchema);
