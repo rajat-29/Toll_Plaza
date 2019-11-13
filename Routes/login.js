@@ -53,4 +53,10 @@ app.post('/changePasswordDatabase' ,auth, function(req,res){
     }
 })
 
+app.get('/logout_person',auth, function(req,res) {
+    req.session.isLogin = 0;
+    req.session.destroy();
+    res.render('index');
+})
+
 module.exports = app;

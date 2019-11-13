@@ -37,3 +37,24 @@ function passSales() {
 function changePassword() {
 	window.location = "/login/changePassword";
 }
+
+function openlogoutpage()
+{
+    $.confirm({
+    theme: 'supervan',
+    title: 'Confirm Logout!',
+    content: 'Do you really want logout?',
+    draggable: true,
+    buttons: {
+        Yes: {
+            action: function () {
+             window.location = "/login/logout_person";
+        }
+    },
+        No: {
+             action: function () {}
+    },
+    }
+    });
+}
+
