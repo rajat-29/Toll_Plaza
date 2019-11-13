@@ -11,7 +11,7 @@ var auth = require('../MiddleWares/auth');
 
 app.post('/checklogin',function (req, res)  {
     req.session.isLogin = 0;
-    users.findOne({email: req.body.name}, function(error,result)
+    users.findOne({email: req.body.name,password : req.body.password}, function(error,result)
     {
         if(error)
         throw error;
@@ -31,6 +31,26 @@ app.post('/checklogin',function (req, res)  {
 
 app.get('/home',auth, function (req,res) {
 	res.render('dashboard',{data:req.session});
+})
+
+app.get('/changePassword',auth, function(req,res) {
+      res.render('changePassword');
+})
+
+app.post('/changePasswordDatabase' ,auth, function(req,res){
+    if(req.body.oldpass != req.session.password)
+      res.send("Incorrect Old Password");
+    else {
+                users.updateOne({"email" : req.session.email},{$set: { "password" : req.body.newpass}} ,
+                  function(error,result)
+                  {
+                    if(error)
+                      throw error;
+                    else
+                      req.session.password = req.body.newpass;
+                  })   
+          res.send("true")
+    }
 })
 
 module.exports = app;

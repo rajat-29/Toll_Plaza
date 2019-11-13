@@ -33,3 +33,7 @@ function passCount() {
 function passSales() {
 	window.location = "/admin/passSales";
 }
+
+function changePassword() {
+	window.location = "/login/changePassword";
+}
