@@ -48,7 +48,10 @@ function openlogoutpage()
     buttons: {
         Yes: {
             action: function () {
-             window.location = "/login/logout_person";
+            	window.sessionStorage.removeItem('email');
+            	window.sessionStorage.removeItem('name');
+            	window.sessionStorage.removeItem('role');
+             	window.location = "/login/logout_person";
         }
     },
         No: {

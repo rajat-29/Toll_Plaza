@@ -22,7 +22,7 @@
                                 </ul>
                             </li>
                               
-                             <li id="manageauth">
+                             <li id="manageStaff">
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Staff <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="addStaff()">Add Staff</a></li>
@@ -30,19 +30,15 @@
                                 </ul>
                             </li>
 
-                            <li id="managebookes">
+                            <li id="managePass">
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Pass <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="addPass()">Add Pass</a></li>
                                      <li role="presentation"><a role="menuitem" tabindex="-1" onclick="managePass()">Manage Pass</a></li>
                                 </ul>
                             </li>
-
-                            <li>
-                                <a onclick="">Receipts</a>
-                            </li>
  
-                            <li id="manageStud">
+                            <li id="passReport">
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Pass Reports<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="betweenDatesPass()"> B/W Dates</a></li>
@@ -51,13 +47,23 @@
                                 </ul>
                             </li>
 
-                            <li id="manageStud">
+                            <li id="receiptReport">
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Receipt Reports<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="manageStudents()">Manage Receipts</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="addNewUser()"> B/W Dates</a></li>
                                      <li role="presentation"><a role="menuitem" tabindex="-1" onclick="manageStudents()">Report Count</a></li>
                                      <li role="presentation"><a role="menuitem" tabindex="-1" onclick="manageStudents()">Sales</a></li>
+
                                 </ul>
+                            </li>
+
+                            <li id="addReceipt">
+                                <a onclick="">Add Receipt</a>
+                            </li>
+
+                            <li id="passUser">
+                                <a onclick="">Pass User</a>
                             </li>
              
                             <li>
@@ -78,8 +84,22 @@
 </section>
 
 <script>
-    document.getElementById('dispayName').innerHTML = "Welcome " + window.sessionStorage.getItem('name');
 
+document.getElementById('dispayName').innerHTML = "Welcome " + window.sessionStorage.getItem('name');
+   
+   if(window.sessionStorage.getItem('role') == 'Admin')
+   {
+    document.getElementById('addReceipt').style.display = "none";
+    document.getElementById('passUser').style.display = "none";
+   }
+   if(window.sessionStorage.getItem('role') == 'Staff')
+   {
+    document.getElementById('manageCat').style.display = "none";
+    document.getElementById('manageStaff').style.display = "none";
+    document.getElementById('managePass').style.display = "none";
+    document.getElementById('passReport').style.display = "none";
+    document.getElementById('receiptReport').style.display = "none";
+   }
 </script>
 
 
