@@ -24,4 +24,17 @@ app.post('/addnewreceipt',auth, function(req,res) {
   res.send("data saved");
 })
 
+app.post('/twoWayCheck',auth,function (req, res) {
+     receipts.findOne({vehicleNumber: req.body.vehicleNumber,entryDate: req.body.entryDate}, function(error,result)
+      {
+        if(error)
+        throw error;
+
+      if(!result)
+        res.send("false");
+      else 
+          res.send("true");
+      })
+})
+
 module.exports = app;

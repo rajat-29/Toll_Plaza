@@ -48,14 +48,14 @@ onchange="catValue()">
 
 <div class="form-group">
 <label>Vehicle Number</label>
-<input class="form-control" type="text" name="author" autocomplete="off" id="vehicle_number" placeholder="Enter Vehicle Number" style="text-transform:uppercase" required />
+<input class="form-control" type="text" name="author" autocomplete="off" id="vehicle_number" placeholder="Enter Vehicle Number" required onchange="twoWaycheck()" />
 </div>
 
 <div class="form-group">
 <label>Trip</label>
-<select class="form-control" name="author" required="required" id="trip_way">
-    <option value="Male">One Way</option>
-    <option value="Female">Two Way</option>
+<select class="form-control" name="author" required="required" id="trip_way" onchange="catValue()">
+    <option value="One Way">One Way</option>
+    <option value="Two Way">Two Way</option>
 </select>
 </div>
 
@@ -65,7 +65,7 @@ onchange="catValue()">
 </div>
 
 <button type="submit" name="create" id="submitStudent" class="btn btn-info">Update </button>
-
+<button type="submit" name="create" id="allowStudent" class="btn btn-info" style="visibility: hidden">Allow </button>
     </div>
     </div>
     </div>

@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 var receiptSchema = new mongoose.Schema({
 	category : String,
 	vehicleNumber : String,
-	entryDate : Date,
+	entryDate : String,
+	entryTime : String,
 	trip : String,
 	cost : Number,
 })

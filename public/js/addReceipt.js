@@ -1,4 +1,5 @@
 var submitStudent = document.getElementById('submitStudent');
+var allowStudent = document.getElementById('allowStudent');
 var vehicle_category = document.getElementById('vehicle_category');
 var vehicle_number = document.getElementById('vehicle_number');
 var trip_way = document.getElementById('trip_way');
@@ -30,6 +31,10 @@ function catValue()
 	{
 		receipt_cost.value = 180;
 	}
+	if(trip_way.value == 'Two Way')
+	{
+		receipt_cost.value = (receipt_cost.value * 2);
+	}
 }
 
 submitStudent.addEventListener("click", function() {
@@ -40,10 +45,28 @@ submitStudent.addEventListener("click", function() {
 		return;
 	}
 
+	var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+    
+    var hrs = today.getHours();
+    var mins = today.getMinutes();
+    var format = "AM";
+    if(hrs>12)
+    {
+        hrs=hrs-12;
+        format="PM";
+    }
+
+    today = + dd + '-' + getMonths(mm) + '-' + yyyy;
+    var time =  hrs + ':' + mins + '' + format;
+
 	var obj = new Object();
 	obj.category = vehicle_category.value;
 	obj.vehicleNumber = vehicle_number.value;
-	obj.entryDate = new Date();
+	obj.entryDate = today;
+	obj.entryTime = time;
 	obj.trip = trip_way.value;
 	obj.cost = receipt_cost.value;
 
@@ -66,10 +89,54 @@ function fetchselectoptions()
     request.send();
     request.onload = function()
     {
-        commArr = JSON.parse(request.responseText);
+       commArr = JSON.parse(request.responseText);
        for(i in commArr)
        {
        	vehicle_category.options[vehicle_category.options.length] = new Option(commArr[i].name,commArr[i].name);
        }
     }
 }
+
+function twoWaycheck() 
+{
+	var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+    
+    today = + dd + '-' + getMonths(mm) + '-' + yyyy;
+
+    var obj = new Object();
+	obj.vehicleNumber = vehicle_number.value;
+	obj.entryDate = today;
+
+
+	var request = new XMLHttpRequest();
+    request.open('POST',"/staff/twoWayCheck");
+    request.setRequestHeader("Content-Type","application/json");
+    request.send(JSON.stringify(obj))
+    request.addEventListener("load",function() {
+        var commArr = request.responseText;
+        console.log(commArr)
+        if(commArr == 'true')
+        {
+        	document.getElementById("email_info").style.display = 'visible';
+			document.getElementById("email_info").style.display = 'block';
+			document.getElementById("email_info").style.marginTop = '10px';
+			document.getElementById("email_info").style.marginBottom = '10px';
+			display_email.innerHTML= "Two Way Exists Allow";
+			document.getElementById('allowStudent').style.visibility = 'visible';
+        }
+    });  
+}
+
+function getMonths(mno) {
+    var month = ["Jan","Feb","March","April","May","June","July","Aug","Sep","Oct","Nov","Dec"];
+    return month[mno-1];
+}
+
+
+allowStudent.addEventListener("click", function() {
+        alert("New Receipt Is Added");
+         window.location = "/staff/addReceipts";
+})
