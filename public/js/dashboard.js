@@ -61,3 +61,7 @@ function openlogoutpage()
     });
 }
 
+function addReceipts() {
+	window.location = "/staff/addReceipts";
+}
+
