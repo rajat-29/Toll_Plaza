@@ -9,6 +9,7 @@ var mongoose = require('mongoose')
 var users = require('../Models/userSchema');
 var category = require('../Models/categorySchema');
 var passes = require('../Models/passSchema');
+var receipts = require('../Models/receiptSchema');
 
 var auth = require('../MiddleWares/auth');
 
@@ -375,4 +376,47 @@ app.post('/FindpassesSale',auth, function(req,res) {
          })
 })
 
+app.get('/receiptCount',auth, function(req,res) {
+  res.render('receiptCount');
+})
+
+app.post('/FindreceiptCount',auth, function(req,res) {
+  receipts.aggregate(
+         [{
+          $project : {
+            month : {$month : "$date"},
+            year : {$year : "$date"},
+            cost : 1
+          }},
+          {
+            $group : {
+              _id : {month : "$month",year : "$year"},
+              total : {$sum : 1}
+            }}
+         ],function (err,result) {
+           res.send(result);
+         })
+})
+
+app.get('/receiptSales',auth, function(req,res) {
+  res.render('receiptSales');
+})
+
+app.post('/FindreceiptSale',auth, function(req,res) {
+  receipts.aggregate(
+         [{
+          $project : {
+            month : {$month : "$date"},
+            year : {$year : "$date"},
+            cost : 1
+          }},
+          {
+            $group : {
+              _id : {month : "$month",year : "$year"},
+              total : {$sum : "$cost"}
+            }}
+         ],function (err,result) {
+           res.send(result);
+         })
+})
 module.exports = app;

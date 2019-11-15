@@ -65,3 +65,10 @@ function addReceipts() {
 	window.location = "/staff/addReceipts";
 }
 
+function receiptCount() {
+    window.location = "/admin/receiptCount";
+}
+
+function receiptSales() {
+    window.location = "/admin/receiptSales";
+}

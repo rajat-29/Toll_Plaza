@@ -1,7 +1,7 @@
 function salesReport() {
 
 	var request = new XMLHttpRequest();
-    request.open('POST',"/admin/FindpassesCount");
+    request.open('POST',"/admin/FindreceiptCount");
     request.setRequestHeader("Content-Type","application/json");
     request.addEventListener("load",function() {
         var data = JSON.parse(request.responseText)
