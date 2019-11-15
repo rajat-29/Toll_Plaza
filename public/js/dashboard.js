@@ -72,3 +72,7 @@ function receiptCount() {
 function receiptSales() {
     window.location = "/admin/receiptSales";
 }
+
+function manageReceipts() {
+    window.location = "/admin/manageReceipts";
+}

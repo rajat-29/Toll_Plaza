@@ -419,4 +419,75 @@ app.post('/FindreceiptSale',auth, function(req,res) {
            res.send(result);
          })
 })
+
+app.get('/manageReceipts',auth, function(req,res) {
+  res.render('manageReceipts');
+})
+
+app.post('/showReceipts' ,auth, function(req, res) {
+  let query = {};
+  let params = {};
+
+  if(req.body.search.value) {
+     query["$or"]= [{
+            "category":  { '$regex' : req.body.search.value, '$options' : 'i' }
+        }, {
+            "vehicleNumber":{ '$regex' : req.body.search.value, '$options' : 'i' }
+        },{
+            "entryDate": { '$regex' : req.body.search.value, '$options' : 'i' }
+        },{
+            "address":  { '$regex' : req.body.search.value, '$options' : 'i' }
+        },{
+            "trip": { '$regex' : req.body.search.value, '$options' : 'i' }
+        }]
+  }
+  else{
+      delete query["$or"];
+  }
+  
+  let sortingType;
+  if(req.body.order[0].dir === 'asc')
+    sortingType = 1;
+  else
+    sortingType = -1;
+
+    if(req.body.order[0].column === '0')
+        params = {skip : parseInt(req.body.start) , limit : parseInt(req.body.length), sort : {phone : sortingType}};
+
+        receipts.find(query , {} , params , function (err , data)
+        {
+            if(err)
+                console.log(err);
+            else {
+                receipts.countDocuments(query, function(err , filteredCount)
+                {
+                    if(err)
+                        console.log(err);
+                    else {
+                        receipts.countDocuments(function (err, totalCount)
+                        {
+                            if(err)
+                                console.log(err);
+                            else
+                                res.send({"recordsTotal": totalCount,
+                                    "recordsFiltered": filteredCount, data});
+                        })
+                    }
+                });
+            }
+        })
+})
+
+app.delete('/receipts/:pro',auth,function(req,res) {
+      var id = req.params.pro.toString();
+      receipts.deleteOne({ "_id": id },function(err,result)
+      {
+          if(err)
+          throw error
+          else
+              res.send("data deleted SUCCESFULLY")
+      });
+})
+
+
 module.exports = app;
