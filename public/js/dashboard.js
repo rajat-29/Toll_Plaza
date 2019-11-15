@@ -76,3 +76,7 @@ function receiptSales() {
 function manageReceipts() {
     window.location = "/admin/manageReceipts";
 }
+
+function betweenDatesReceipts() {
+    window.location = "/admin/betweenDatesReceipts";
+}
