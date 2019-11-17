@@ -7,6 +7,7 @@ app.use(express.static(path.join(__dirname,'../public')));
 
 var mongoose = require('mongoose')
 var receipts = require('../Models/receiptSchema');
+var passes = require('../Models/passSchema');
 
 var auth = require('../MiddleWares/auth');
 
@@ -35,6 +36,33 @@ app.post('/twoWayCheck',auth,function (req, res) {
       else 
           res.send("true");
       })
+})
+
+app.get('/passUser',auth, function(req,res) {
+  res.render('passUser');
+})
+
+app.post('/passVehicle',auth,function (req, res) {
+     passes.findOne({registration: req.body.vehicleNumber}, function(error,result)
+      {
+        if(error)
+        throw error;
+
+      if(!result)
+        res.send("false");
+      else 
+          res.send(result);
+      })
+})
+
+app.post('/reducePassBalance',auth, function(req,res) {  
+        passes.updateOne( {"registration" : req.body.registration}, {$set : req.body } , function(err,result)
+        {
+          if(err)
+          throw err
+          else 
+            res.send("DATA UPDATED SUCCESFULLY")
+        })
 })
 
 module.exports = app;

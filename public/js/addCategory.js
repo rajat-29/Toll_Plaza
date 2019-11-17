@@ -33,7 +33,7 @@ submitbtn.addEventListener("click", function () {
     request.send(JSON.stringify(obj))
     request.addEventListener("load",function() {
         alert("New Category Is Registred");
-        window.location = "/admin/addCategory";
+         location.reload();
     });  
 })
 

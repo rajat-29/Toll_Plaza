@@ -44,7 +44,7 @@ submitStudent.addEventListener("click", function() {
     request.send(JSON.stringify(obj))
     request.addEventListener("load",function() {
         alert("New User Is Registred");
-        window.location = "/admin/addStaff";
+         location.reload();
     });  
 })
 

@@ -36,7 +36,7 @@ submitbtn.addEventListener("click", function() {
 	    	if(request.responseText == "true")
 	    	{
 	    		alert("Password Changed Successfully");
-	    		 window.location = "/login/changePassword";
+	    		  location.reload();
 	    	}
 	    	else
 	    		alert(request.responseText)

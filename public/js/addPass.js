@@ -43,7 +43,7 @@ submitStudent.addEventListener("click", function() {
     request.send(JSON.stringify(obj))
     request.addEventListener("load",function() {
         alert("New Pass Is Registred");
-        window.location = "/admin/addPass";
+         location.reload();
     });  
 })
 

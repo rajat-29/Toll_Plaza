@@ -77,7 +77,7 @@ submitStudent.addEventListener("click", function() {
     request.send(JSON.stringify(obj))
     request.addEventListener("load",function() {
         alert("New Receipt Is Added");
-        window.location = "/staff/addReceipts";
+         location.reload();
     });  
 })
 
@@ -118,7 +118,6 @@ function twoWaycheck()
     request.send(JSON.stringify(obj))
     request.addEventListener("load",function() {
         var commArr = request.responseText;
-        console.log(commArr)
         if(commArr == 'true')
         {
         	document.getElementById("email_info").style.display = 'visible';
