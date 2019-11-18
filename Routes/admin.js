@@ -2,6 +2,8 @@ let express = require('express');
 var app = require('express').Router();
 let path = require('path');
 app.use(express.json())
+const bcrypt = require('bcrypt');
+let saltRounds = 10
 
 app.use(express.static(path.join(__dirname,'../public')));
 
@@ -100,12 +102,18 @@ app.get('/addStaff',auth, function(req,res) {
 })
 
 app.post('/addnewuser',auth, function(req,res) {
-  users.create(req.body,function(error,result)
-  {
+  bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+    if(!err) {
+      req.body.password = hash;
+      users.create(req.body,function(error,result)
+      {
         if(error)
         throw error;
         else{}
-  })         
+      })         
+    }
+    else {}
+  }) 
   res.send("data saved");
 })
 
@@ -232,8 +240,6 @@ app.post('/showPass' ,auth, function(req, res) {
             "address":  { '$regex' : req.body.search.value, '$options' : 'i' }
         },{
             "phone": { '$regex' : req.body.search.value, '$options' : 'i' }
-        },{
-            "balance":  { '$regex' : req.body.search.value, '$options' : 'i' }
         }]
   }
   else{
