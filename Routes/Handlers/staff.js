@@ -3,13 +3,13 @@ var app = require('express').Router();
 let path = require('path');
 app.use(express.json())
 
-app.use(express.static(path.join(__dirname,'../public')));
+app.use(express.static(path.join(__dirname,'../../public')));
 
 var mongoose = require('mongoose')
-var receipts = require('../Models/receiptSchema');
-var passes = require('../Models/passSchema');
+var receipts = require('../../Models/receiptSchema');
+var passes = require('../../Models/passSchema');
 
-var auth = require('../MiddleWares/auth');
+var auth = require('../../MiddleWares/auth');
 
 app.get('/addReceipts',auth, function(req,res) {
 	res.render('addReceipts');

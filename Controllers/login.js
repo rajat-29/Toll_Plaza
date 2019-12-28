@@ -1,20 +1,12 @@
-let express = require('express');
-var app = require('express').Router();
-let path = require('path');
 const bcrypt = require('bcrypt');
 let saltRounds = 10
 
-app.use(express.static(path.join(__dirname,'../public')));
-
-var mongoose = require('mongoose')
 var users = require('../Models/userSchema');
 var category = require('../Models/categorySchema');
 var passes = require('../Models/passSchema');
 var receipts = require('../Models/receiptSchema');
 
-var auth = require('../MiddleWares/auth');
-
-app.post('/checkLogin',function (req, res)  {
+exports.checkLogin = (req, res) => {
     req.session.isLogin = 0;
     users.findOne({email: req.body.name}, function(error,result)
     {
@@ -39,17 +31,9 @@ app.post('/checkLogin',function (req, res)  {
            })    
         }
     })     
-})
+}
 
-app.get('/home',auth, function (req,res) {
-	res.render('dashboard',{data:req.session});
-})
-
-app.get('/changePassword',auth, function(req,res) {
-      res.render('changePassword');
-})
-
-app.post('/changePasswordDatabase' ,auth, function(req,res){
+exports.changePasswordDatabase = (req,res) => {
     if(req.body.oldpass != req.session.password)
       res.send("Incorrect Old Password");
     else {
@@ -68,37 +52,28 @@ app.post('/changePasswordDatabase' ,auth, function(req,res){
           }) 
           res.send("true")
     }
-})
+}
 
-app.get('/logout_person',auth, function(req,res) {
-    req.session.isLogin = 0;
-    req.session.destroy();
-    res.render('index');
-})
-
-app.get('/totalNoofUsers' ,auth, function(req, res) {
+exports.totalNoofUsers = (req, res) => {
       users.countDocuments(function(e,count){
           res.send(JSON.stringify(count));
    });
-})
+}
 
-app.get('/totalNoofCategory' ,auth, function(req, res) {
+exports.totalNoofCategory = (req, res) => {
       category.countDocuments(function(e,count){
           res.send(JSON.stringify(count));
    });
 })
 
-app.get('/totalNoofPasses' ,auth, function(req, res) {
+exports.totalNoofPasses = (req, res) => {
    passes.countDocuments(function(e,count){
           res.send(JSON.stringify(count));
    });
 })
 
-app.post('/totalReceiptsToday',auth,function (req, res) {
-     receipts.countDocuments({entryDate: req.body.entryDate}, function(error,count)
-      {
+exports.totalReceiptsToday = (req, res) => {
+    receipts.countDocuments({entryDate: req.body.entryDate}, function(error,count) {
         res.send(JSON.stringify(count));
-      })
+    })
 })
-
-module.exports = app;

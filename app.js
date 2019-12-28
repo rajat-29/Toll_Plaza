@@ -23,7 +23,6 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     clear_interval: 900,
-    //store : new mongoStore({mongooseConnection:db}),
     autoRemove: 'native',
     cookie: {maxAge: 3000000}
 }))
@@ -36,9 +35,7 @@ mongoose.connection.on('connected', (err) => {
 	console.log('DB connected');
 })
 
-app.use('/login',require('./Routes/login'));   // Routing the routes //
-app.use('/admin',require('./Routes/admin'));
-app.use('/staff',require('./Routes/staff'));
+app.use('/',require('./Routes/'));
 
 app.listen(port, () => {
 	console.log('Running on port ' +port);

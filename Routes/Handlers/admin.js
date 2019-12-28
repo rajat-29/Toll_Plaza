@@ -5,15 +5,15 @@ app.use(express.json())
 const bcrypt = require('bcrypt');
 let saltRounds = 10
 
-app.use(express.static(path.join(__dirname,'../public')));
+app.use(express.static(path.join(__dirname,'../../public')));
 
 var mongoose = require('mongoose')
-var users = require('../Models/userSchema');
-var category = require('../Models/categorySchema');
-var passes = require('../Models/passSchema');
-var receipts = require('../Models/receiptSchema');
+var users = require('../../Models/userSchema');
+var category = require('../../Models/categorySchema');
+var passes = require('../../Models/passSchema');
+var receipts = require('../../Models/receiptSchema');
 
-var auth = require('../MiddleWares/auth');
+var auth = require('../../MiddleWares/auth');
 
 app.get('/addCategory',auth, function(req,res) {
 	res.render('add_category');
