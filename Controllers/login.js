@@ -64,16 +64,16 @@ exports.totalNoofCategory = (req, res) => {
       category.countDocuments(function(e,count){
           res.send(JSON.stringify(count));
    });
-})
+}
 
 exports.totalNoofPasses = (req, res) => {
    passes.countDocuments(function(e,count){
           res.send(JSON.stringify(count));
    });
-})
+}
 
 exports.totalReceiptsToday = (req, res) => {
     receipts.countDocuments({entryDate: req.body.entryDate}, function(error,count) {
         res.send(JSON.stringify(count));
     })
-})
+}

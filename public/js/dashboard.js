@@ -77,10 +77,6 @@ function manageReceipts() {
     window.location = "/admin/manageReceipts";
 }
 
-function betweenDatesReceipts() {
-    window.location = "/admin/betweenDatesReceipts";
-}
-
 function passUser() {
     window.location = "/staff/passUser";
 }

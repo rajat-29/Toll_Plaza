@@ -6,7 +6,7 @@ var receiptSchema = new mongoose.Schema({
 	vehicleNumber : String,
 	entryDate : String,
 	entryTime : String,
-	date : Date,
+	receiptdate : Date,
 	trip : String,
 	cost : Number,
 })

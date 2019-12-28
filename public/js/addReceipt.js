@@ -67,7 +67,7 @@ submitStudent.addEventListener("click", function() {
 	obj.vehicleNumber = vehicle_number.value;
 	obj.entryDate = today;
 	obj.entryTime = time;
-	obj.date = new Date();
+	obj.receiptdate = new Date();
 	obj.trip = trip_way.value;
 	obj.cost = receipt_cost.value;
 
