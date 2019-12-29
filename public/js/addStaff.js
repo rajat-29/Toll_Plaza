@@ -6,6 +6,7 @@ var staff_address = document.getElementById('staff_address');
 var staff_gender = document.getElementById('staff_gender');
 var staff_role = document.getElementById('staff_role');
 var staff_phone = document.getElementById('staff_phone');
+var flag = 0;
 
 submitStudent.addEventListener("click", function() {
 
@@ -14,18 +15,51 @@ submitStudent.addEventListener("click", function() {
 	if(staff_name.value == '' || staff_email.value == '' || 
 		staff_password.value == '' || staff_address.value == ''|| staff_phone.value == '')
 	{
-		alert("Field is Empty");
+		$.confirm({
+	      title: 'Fields ?',
+	      content: "Field is Empty !! ",
+	      draggable: true,
+	      buttons: {
+	        OK: {
+	            btnClass: 'btn-danger any-other-class',
+	             action: function () {      
+	          }
+	          },
+	          }
+	        });
 		return;
 	}
 	else if(ph.length<10 || ph.length>10)
 	{
-		alert('Phone No should be of length 10');
+		$.confirm({
+	      title: 'Phone No ?',
+	      content: "Phone No should be of length 10 !! ",
+	      draggable: true,
+	      buttons: {
+	        OK: {
+	            btnClass: 'btn-danger any-other-class',
+	             action: function () {      
+	          }
+	          },
+	          }
+	        });
 		return;
 	}
 
 	if(!ValidateEmail(staff_email.value))
 	{
-		alert('Email format is not valid')
+		$.confirm({
+	      title: 'Email format ?',
+	      content: "Email format is not valid !! ",
+	      draggable: true,
+	      buttons: {
+	        OK: {
+	            btnClass: 'btn-danger any-other-class',
+	             action: function () {      
+	          }
+	          },
+	          }
+	        });
 		return;
 	}
 
@@ -38,14 +72,45 @@ submitStudent.addEventListener("click", function() {
 	obj.role = staff_role.value;
 	obj.phone = staff_phone.value;
 
-	var request = new XMLHttpRequest();
-    request.open('POST',"/admin/addnewuser");
-    request.setRequestHeader("Content-Type","application/json");
-    request.send(JSON.stringify(obj))
-    request.addEventListener("load",function() {
-        alert("New User Is Registred");
-         location.reload();
-    });  
+	if(flag == 1)
+	{
+		$.confirm({
+		      title: 'User ?',
+		      content: "User Is Already Registred !! ",
+		      draggable: true,
+		      buttons: {
+		        OK: {
+		            btnClass: 'btn-danger any-other-class',
+		             action: function () { 
+		          }
+		          },
+		          }
+		    });
+	}
+	else
+	{
+		var request = new XMLHttpRequest();
+	    request.open('POST',"/admin/addnewuser");
+	    request.setRequestHeader("Content-Type","application/json");
+	    request.send(JSON.stringify(obj))
+	    request.addEventListener("load",function() {
+	        $.confirm({
+		      title: 'New User ?',
+		      content: "New User Is Registred !! ",
+		      draggable: true,
+		      buttons: {
+		        OK: {
+		            btnClass: 'btn-danger any-other-class',
+		             action: function () { 
+		             	location.reload();     
+		          }
+		          },
+		          }
+		    });
+	    }); 
+	}
+
+	 
 })
 
 function ValidateEmail(mail) 
@@ -72,9 +137,11 @@ function email_avail()
     	var data = request.responseText;
     	if(data === 'true') {
     		display_email.innerHTML= "User " + staff_email.value + " is already exist";
+    		flag = 1;
     	}
     	else {
             display_email.innerHTML= staff_email.value + " is available";
+            flag = 0;
     	}
     });  
 }
