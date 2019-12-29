@@ -26,7 +26,7 @@ submitStudent.addEventListener("click", function() {
 	          }
 	          },
 	          }
-	        });
+	    });
 		return;
 	}
 	else if(ph.length<10 || ph.length>10)
@@ -42,7 +42,7 @@ submitStudent.addEventListener("click", function() {
 	          }
 	          },
 	          }
-	        });
+	    });
 		return;
 	}
 

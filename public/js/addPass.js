@@ -17,12 +17,34 @@ submitStudent.addEventListener("click", function() {
 	 	validity_to.value == '' || applicant_name.value == ''|| applicant_age.value == '' ||
 	 	applicant_address.value == '' || applicant_phone.value == ''|| applicant_balance.value == '')
 	{
-		alert("Field is Empty");
+		$.confirm({
+	      title: 'Fields ?',
+	      content: "Field is Empty !! ",
+	      draggable: true,
+	      buttons: {
+	        OK: {
+	            btnClass: 'btn-danger any-other-class',
+	             action: function () {      
+	          }
+	          },
+	          }
+	    });
 	 	return;
 	}
 	else if(ph.length<10 || ph.length>10)
 	{
-		alert('Phone No should be of length 10');
+		$.confirm({
+	      title: 'Phone No ?',
+	      content: "Phone No should be of length 10 !! ",
+	      draggable: true,
+	      buttons: {
+	        OK: {
+	            btnClass: 'btn-danger any-other-class',
+	             action: function () {      
+	          }
+	          },
+	          }
+	    });
 		return;
 	}
 
@@ -42,14 +64,24 @@ submitStudent.addEventListener("click", function() {
     request.setRequestHeader("Content-Type","application/json");
     request.send(JSON.stringify(obj))
     request.addEventListener("load",function() {
-        alert("New Pass Is Registred");
-         location.reload();
+        $.confirm({
+	      title: 'New Pass ?',
+	      content: "New Pass Is Registred !! ",
+	      draggable: true,
+	      buttons: {
+	        OK: {
+	            btnClass: 'btn-danger any-other-class',
+	             action: function () { 
+	             	location.reload();     
+	          }
+	          },
+	          }
+	    });
     });  
 })
 
 function fetchselectoptions()
 {
-	// to fetch categories select options
 	var commArr;
 	var request = new XMLHttpRequest();
     request.open('GET','/admin/categoryOptions');

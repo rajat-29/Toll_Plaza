@@ -41,7 +41,18 @@ submitStudent.addEventListener("click", function() {
 
 	if(vehicle_number.value == '' || receipt_cost.value == '')
 	{
-		alert("Field is Empty");
+		$.confirm({
+	      title: 'Fields ?',
+	      content: "Field is Empty !! ",
+	      draggable: true,
+	      buttons: {
+	        OK: {
+	            btnClass: 'btn-danger any-other-class',
+	             action: function () {      
+	          }
+	          },
+	          }
+	    });
 		return;
 	}
 
@@ -76,14 +87,24 @@ submitStudent.addEventListener("click", function() {
     request.setRequestHeader("Content-Type","application/json");
     request.send(JSON.stringify(obj))
     request.addEventListener("load",function() {
-        alert("New Receipt Is Added");
-         location.reload();
+        $.confirm({
+	      title: 'New Receipt ?',
+	      content: "New Receipt Is Added !! ",
+	      draggable: true,
+	      buttons: {
+	        OK: {
+	            btnClass: 'btn-danger any-other-class',
+	             action: function () { 
+	             	location.reload();     
+	          }
+	          },
+	          }
+	    });
     });  
 })
 
 function fetchselectoptions()
 {
-	// to fetch categories select options
 	var commArr;
 	var request = new XMLHttpRequest();
     request.open('GET','/admin/categoryOptions');
