@@ -34,10 +34,7 @@ exports.checkLogin = (req, res) => {
 }
 
 exports.changePasswordDatabase = (req,res) => {
-    if(req.body.oldpass != req.session.password)
-      res.send("Incorrect Old Password");
-    else {
-          bcrypt.hash(req.body.newpass, saltRounds, (err, hash) => {
+    bcrypt.hash(req.body.newpass, saltRounds, (err, hash) => {
               if(!err) {
                 users.updateOne({"email" : req.session.email},{$set: { "password" : hash}} ,
                   function(error,result)
@@ -49,9 +46,8 @@ exports.changePasswordDatabase = (req,res) => {
                   })   
               }
               else {}
-          }) 
-          res.send("true")
-    }
+    }) 
+    res.send("Password Changed Successfully")
 }
 
 exports.totalNoofUsers = (req, res) => {
