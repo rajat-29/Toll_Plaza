@@ -19,12 +19,12 @@ app.get('/passUser',auth, function(req,res) {
 
 // controllers //
 
-app.use('/addnewreceipt',staffController.addnewreceipt);
+app.use('/addnewreceipt',auth,staffController.addnewreceipt);
 
-app.use('/twoWayCheck',staffController.twoWayCheck);
+app.use('/twoWayCheck',auth,staffController.twoWayCheck);
 
-app.use('/passVehicle',staffController.passVehicle);
+app.use('/passVehicle',auth,staffController.passVehicle);
 
-app.use('/reducePassBalance',staffController.reducePassBalance);
+app.use('/reducePassBalance',auth,staffController.reducePassBalance);
 
 module.exports = app;

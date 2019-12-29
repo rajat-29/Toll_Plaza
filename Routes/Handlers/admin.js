@@ -58,42 +58,42 @@ app.get('/receiptSales',auth, function(req,res) {
 
 // controllers //
 
-app.use('/addnewCategory',adminController.addnewCategory);
+app.use('/addnewCategory',auth,adminController.addnewCategory);
 
-app.use('/checkcategory',adminController.checkcategory);
+app.use('/checkcategory',auth,adminController.checkcategory);
 
-app.use('/showcategories',adminController.showcategories);
+app.use('/showcategories',auth,adminController.showcategories);
 
-app.use('/category/:pro',adminController.category);
+app.use('/category/:pro',auth,adminController.category);
 
-app.use('/addnewuser',adminController.addnewuser);
+app.use('/addnewuser',auth,adminController.addnewuser);
 
-app.use('/checkemail',adminController.checkemail);
+app.use('/checkemail',auth,adminController.checkemail);
 
-app.use('/showStaff',adminController.showStaff);
+app.use('/showStaff',auth,adminController.showStaff);
 
-app.use('/students/:pro',adminController.students);
+app.use('/students/:pro',auth,adminController.students);
 
-app.use('/categoryOptions',adminController.categoryOptions);
+app.use('/categoryOptions',auth,adminController.categoryOptions);
 
-app.use('/addnewpass',adminController.addnewpass);
+app.use('/addnewpass',auth,adminController.addnewpass);
 
-app.use('/showPass',adminController.showPass);
+app.use('/showPass',auth,adminController.showPass);
 
-app.use('/passes/:pro',adminController.passes);
+app.use('/passes/:pro',auth,adminController.passes);
 
-app.use('/findBetweenDatePass',adminController.findBetweenDatePass);
+app.use('/findBetweenDatePass',auth,adminController.findBetweenDatePass);
 
-app.use('/FindpassesCount',adminController.FindpassesCount);
+app.use('/FindpassesCount',auth,adminController.FindpassesCount);
 
-app.use('/FindpassesSale',adminController.FindpassesSale);
+app.use('/FindpassesSale',auth,adminController.FindpassesSale);
 
-app.use('/showReceipts',adminController.showReceipts);
+app.use('/showReceipts',auth,adminController.showReceipts);
 
-app.use('/FindreceiptCount',adminController.FindreceiptCount);
+app.use('/FindreceiptCount',auth,adminController.FindreceiptCount);
 
-app.use('/FindreceiptSale',adminController.FindreceiptSale);
+app.use('/FindreceiptSale',auth,adminController.FindreceiptSale);
 
-app.use('/receipts/:pro',adminController.receipts);
+app.use('/receipts/:pro',auth,adminController.receipts);
 
 module.exports = app;

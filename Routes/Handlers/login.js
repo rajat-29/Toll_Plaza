@@ -26,14 +26,14 @@ app.get('/logout_person',auth, function(req,res) {
 
 app.use('/checkLogin',loginController.checkLogin);
 
-app.use('/changePasswordDatabase',loginController.changePasswordDatabase);
+app.use('/changePasswordDatabase',auth,loginController.changePasswordDatabase);
 
-app.use('/totalNoofUsers',loginController.totalNoofUsers);
+app.use('/totalNoofUsers',auth,loginController.totalNoofUsers);
 
-app.use('/totalNoofCategory',loginController.totalNoofCategory);
+app.use('/totalNoofCategory',auth,loginController.totalNoofCategory);
 
-app.use('/totalNoofPasses',loginController.totalNoofPasses);
+app.use('/totalNoofPasses',auth,loginController.totalNoofPasses);
 
-app.use('/totalReceiptsToday',loginController.totalReceiptsToday);
+app.use('/totalReceiptsToday',auth,loginController.totalReceiptsToday);
 
 module.exports = app;
