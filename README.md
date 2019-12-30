@@ -30,7 +30,7 @@ It will run under the url http://127.0.0.1:8000/
   <li>Express-Session</li>
   <li>EJS</li>
   <li>Bcrypt Module</li>
-<ul>
+</ul>
 
 ## Login :
 
