@@ -5,7 +5,18 @@ var submit_btn = document.getElementById('submit_btn');
 submit_btn.addEventListener("click", function () {
 	if(email_add.value == '' || user_pass.value == '')
 	{
-		alert("Fields are empty");
+		$.confirm({
+	      title: 'Fields ?',
+	      content: "Field is Empty !! ",
+	      draggable: true,
+	      buttons: {
+	        OK: {
+	            btnClass: 'btn-danger any-other-class',
+	             action: function () {      
+	          }
+	          },
+	          }
+	    });
 		return;
 	}
 
@@ -23,7 +34,18 @@ submit_btn.addEventListener("click", function () {
             window.location = "/login/home";
         }
         else {
-        	alert("Wrong Email or Password");
+        	$.confirm({
+		      title: 'Fields ?',
+		      content: "Wrong Email or Password !! ",
+		      draggable: true,
+		      buttons: {
+		        OK: {
+		            btnClass: 'btn-danger any-other-class',
+		             action: function () {      
+		          }
+		          },
+		          }
+		    });
         }
 	})
 })
