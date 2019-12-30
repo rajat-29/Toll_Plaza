@@ -106,15 +106,35 @@ function twoWaycheck()
     request.send(JSON.stringify(obj))
     request.addEventListener("load",function() {
         commArr = JSON.parse(request.responseText);
-        vehicle_category.innerHTML = commArr.category;
-        balance.innerHTML = commArr.balance;
-        validTo.innerHTML = commArr.validityTo;
-        var receipt_cost = catValue();
-        cost.innerHTML = receipt_cost;
-        if(commArr.balance - receipt_cost < 0)
-        	alert("Low Balance");
+        document.getElementById('allowCar').style.visibility = 'none';
+        if(request.responseText == "false")
+        {
+        	$.confirm({
+		      title: 'Pass ?',
+		      content: "Pass Don't Exist !! ",
+		      draggable: true,
+		      buttons: {
+		        OK: {
+		            btnClass: 'btn-danger any-other-class',
+		             action: function () { 
+		             location.reload();     
+		          }
+		          },
+		          }
+		    });
+        }
         else
-        	document.getElementById('allowCar').style.visibility = 'visible';
+        {
+        	vehicle_category.innerHTML = commArr.category;
+	        balance.innerHTML = commArr.balance;
+	        validTo.innerHTML = commArr.validityTo;
+	        var receipt_cost = catValue();
+	        cost.innerHTML = receipt_cost;
+	        if(commArr.balance - receipt_cost < 0)
+	        	alert("Low Balance");
+	        else
+	        	document.getElementById('allowCar').style.visibility = 'visible';
+	        }
     });  
 }
 
