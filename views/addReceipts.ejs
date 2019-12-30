@@ -39,7 +39,7 @@ Receipt Info
 <div class="panel-body">
 
 <div class="form-group">
-<label>Category</label>
+<label>Category <label style="color: red">*</label></label>
 <select class="form-control" name="author" required="required" id="vehicle_category" 
 onchange="catValue()">
 <option>Select Option</option>
@@ -47,12 +47,12 @@ onchange="catValue()">
 </div>
 
 <div class="form-group">
-<label>Vehicle Number</label>
+<label>Vehicle Number <label style="color: red">*</label></label>
 <input class="form-control" type="text" name="author" autocomplete="off" id="vehicle_number" placeholder="Enter Vehicle Number" required onchange="twoWaycheck()" />
 </div>
 
 <div class="form-group">
-<label>Trip</label>
+<label>Trip <label style="color: red">*</label></label>
 <select class="form-control" name="author" required="required" id="trip_way" onchange="catValue()">
     <option value="One Way">One Way</option>
     <option value="Two Way">Two Way</option>
@@ -60,7 +60,7 @@ onchange="catValue()">
 </div>
 
 <div class="form-group">
-<label>Cost</label>
+<label>Cost <label style="color: red">*</label></label>
 <input class="form-control" type="text" name="author" autocomplete="off" id="receipt_cost" placeholder="Enter Cost" required />
 </div>
 
