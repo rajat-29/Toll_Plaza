@@ -17,8 +17,13 @@
   },
   "homepage": "https://github.com/rajat-29/Toll_Management_System#readme",
   "dependencies": {
+    "bcrypt": "^3.0.7",
+    "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "http": "0.0.0",
+    "mongoose": "^5.8.9",
     "path": "^0.12.7"
   }
 }

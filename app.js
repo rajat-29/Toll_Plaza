@@ -3,18 +3,18 @@ var path = require('path');
 var app = express();
 var session = require('express-session');
 var ejs = require('ejs');
-var mongodb = require('mongodb');
-var port = 8000;
+var port = process.env.PORT || 3000;
+var http = require('http');
+var server = http.Server(app);
+
+require("dotenv").config();
 
 app.set('views', path.join(__dirname, 'views'));  // view engine setup
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname,'/public')))
 
-var mongoose = require('mongoose');
-var mongoDb = 'mongodb://localhost/tollManagement';
-
-mongoose.set('useFindAndModify', false);
-mongoose.connect(mongoDb, {useNewUrlParser : true});
+// DB //
+require("./static/db");
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())                 /*include express*/
@@ -27,16 +27,8 @@ app.use(session({
     cookie: {maxAge: 3000000}
 }))
 
-mongoose.connection.on('error', (err) => {
-	console.log('DB connection error');
-})
-
-mongoose.connection.on('connected', (err) => {
-	console.log('DB connected');
-})
-
 app.use('/',require('./Routes/'));
 
-app.listen(port, () => {
+server.listen(port, () => {
 	console.log('Running on port ' +port);
 });
