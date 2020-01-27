@@ -37,9 +37,15 @@ It will run under the url http://127.0.0.1:8000/
 
 ## Login :
 
-  ### Admin
-    <ul>
+  ### Admin :
+  <ul>
       <li> ID - admin@cq.com </li>
       <li> Password - admincq </li>
-    </ul>
+  </ul>
+  
+  ### Staff : 
+  <ul>
+    <li>ID - bro@cq.com </li>
+    <li> Password - admincq </li>
+  </ul>
 
