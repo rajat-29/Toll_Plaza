@@ -13,7 +13,7 @@ app.get('/home',auth, function (req,res) {
 })
 
 app.get('/changePassword',auth, function(req,res) {
-      res.render('changePassword');
+      res.render('changePassword',{data:req.session});
 })
 
 app.get('/logout_person',auth, function(req,res) {

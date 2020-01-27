@@ -9,51 +9,51 @@ var auth = require('../../MiddleWares/auth');
 let adminController = require('../../Controllers/admin');
 
 app.get('/addCategory',auth, function(req,res) {
-	res.render('add_category');
+	res.render('add_category',{data:req.session});
 })
 
 app.get('/manageCategory',auth, function(req,res) {
-  res.render('manage_category');
+  res.render('manage_category',{data:req.session});
 })
 
 app.get('/addStaff',auth, function(req,res) {
-  res.render('add_staff');
+  res.render('add_staff',{data:req.session});
 })
 
 app.get('/manageStaff',auth, function(req,res) {
-  res.render('manage_staff');
+  res.render('manage_staff',{data:req.session});
 })
 
 app.get('/addPass',auth, function(req,res) {
-  res.render('add_pass');
+  res.render('add_pass',{data:req.session});
 })
 
 app.get('/managePass',auth, function(req,res) {
-  res.render('manage_pass');
+  res.render('manage_pass',{data:req.session});
 })
 
 app.get('/betweenDatesPass',auth, function(req,res) {
-  res.render('betweenDatesPass');
+  res.render('betweenDatesPass',{data:req.session});
 })
 
 app.get('/passCount',auth, function(req,res) {
-  res.render('passCount');
+  res.render('passCount',{data:req.session});
 })
 
 app.get('/passSales',auth, function(req,res) {
-  res.render('passSales');
+  res.render('passSales',{data:req.session});
 })
 
 app.get('/manageReceipts',auth, function(req,res) {
-  res.render('manageReceipts');
+  res.render('manageReceipts',{data:req.session});
 })
 
 app.get('/receiptCount',auth, function(req,res) {
-  res.render('receiptCount');
+  res.render('receiptCount',{data:req.session});
 })
 
 app.get('/receiptSales',auth, function(req,res) {
-  res.render('receiptSales');
+  res.render('receiptSales',{data:req.session});
 })
 
 // controllers //

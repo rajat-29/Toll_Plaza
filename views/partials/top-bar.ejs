@@ -1,7 +1,7 @@
 <div class="navbar navbar-inverse set-radius-zero" >
     <div class="container">
         <div class="right-div">
-             <a href="/login/home" id="dispayName" class="btn btn-danger pull-right"></a>
+             <a href="/login/home" id="dispayName" class="btn btn-danger pull-right">Welcome</a>
         </div>
     </div>
 </div>
@@ -14,6 +14,7 @@
 
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
 
+                        <% if(data.role == "Admin"){ %>
                             <li id="manageCat">
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Categories <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
@@ -21,7 +22,9 @@
                                      <li role="presentation"><a role="menuitem" tabindex="-1" onclick="manageCategory()">Manage Categories</a></li>
                                 </ul>
                             </li>
-                              
+                         <% } %>  
+                           
+                        <% if(data.role == "Admin"){ %>      
                              <li id="manageStaff">
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Staff <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
@@ -29,7 +32,9 @@
                                      <li role="presentation"><a role="menuitem" tabindex="-1" onclick="manageStaff()">Manage Staff</a></li>
                                 </ul>
                             </li>
+                        <% } %>     
 
+                        <% if(data.role == "Admin"){ %>
                             <li id="managePass">
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Pass <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
@@ -37,7 +42,9 @@
                                      <li role="presentation"><a role="menuitem" tabindex="-1" onclick="managePass()">Manage Pass</a></li>
                                 </ul>
                             </li>
- 
+                        <% } %>
+                             
+                        <% if(data.role == "Admin"){ %>
                             <li id="passReport">
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Pass Reports<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
@@ -46,7 +53,9 @@
                                      <li role="presentation"><a role="menuitem" tabindex="-1" onclick="passSales()">Sales</a></li>
                                 </ul>
                             </li>
+                        <% } %>                            
 
+                        <% if(data.role == "Admin"){ %>
                             <li id="receiptReport">
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Receipt Reports<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
@@ -56,14 +65,19 @@
 
                                 </ul>
                             </li>
-
+                        <% } %>   
+                         
+                        <% if(data.role == "Staff"){ %>
                             <li id="addReceipt">
                                 <a onclick="addReceipts()">Add Receipt</a>
                             </li>
+                        <% } %>       
 
+                        <% if(data.role == "Staff"){ %>
                             <li id="passUser">
                                 <a onclick="passUser()">Pass User</a>
                             </li>
+                        <% } %>       
              
                             <li>
                                 <a onclick="changePassword()">Change Password</a>
@@ -81,26 +95,4 @@
     </div>
 
 </section>
-
-<script>
-
-document.getElementById('dispayName').innerHTML = "Welcome " + window.sessionStorage.getItem('name');
-   
-   if(window.sessionStorage.getItem('role') == 'Admin')
-   {
-    document.getElementById('addReceipt').style.display = "none";
-    document.getElementById('passUser').style.display = "none";
-   }
-   if(window.sessionStorage.getItem('role') == 'Staff')
-   {
-    document.getElementById('manageCat').style.display = "none";
-    document.getElementById('manageStaff').style.display = "none";
-    document.getElementById('managePass').style.display = "none";
-    document.getElementById('passReport').style.display = "none";
-    document.getElementById('receiptReport').style.display = "none";
-   }
-</script>
-
-
-
  
