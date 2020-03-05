@@ -3,11 +3,14 @@ Toll Management System to manage toll plaza and vehicle passes using bootstrap,N
 
 ## Features
 <ul>
-  <li>Mongoose Database</li>
-  <li>Different View For Staff And Admin</li> 
-  <li>Add Receipts</li>
+  <li>Dynamic Data by mongoose database</li>
+  <li>Different Views for Admin and Staff</li> 
+  <li>Manage Whole Toll Plaza</li>
   <li>Manage Reports and Passes</li>
   <li>Month wise Sales Report</li>
+  <li>Responsive Layout</li>
+  <li>Mobile Friendly</li>
+  <li>Open Source</li>
 </ul>
 
 ## How To Run?
@@ -34,8 +37,15 @@ It will run under the url http://127.0.0.1:8000/
 
 ## Login :
 
-<ul>
-  <li> ID - admin@cq.com </li>
-  <li> Password - admincq </li>
-</ul>
+  ### Admin :
+  <ul>
+      <li> ID - admin@cq.com </li>
+      <li> Password - admincq </li>
+  </ul>
+  
+  ### Staff : 
+  <ul>
+    <li>ID - bro@cq.com </li>
+    <li> Password - admincq </li>
+  </ul>
 
