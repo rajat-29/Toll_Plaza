@@ -7,7 +7,9 @@ function salesReport() {
         var data = JSON.parse(request.responseText)
         for(i in data)
         {
-        	addToTable(data[i]);
+            if(data[i]._id.month != null) {
+                addToTable(data[i]);
+            }
         }
     });  
     request.send();
