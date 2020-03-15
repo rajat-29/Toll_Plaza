@@ -7,13 +7,15 @@ var passes = require('../Models/passSchema');
 var receipts = require('../Models/receiptSchema');
 
 exports.addnewCategory = (req,res) => {
-     category.create(req.body,function(error,result)
-      {
-        if(error)
-        throw error;
-        else{}
-      })
+  req.body.createBy = req.session.name;
+  category.create(req.body,function(error,result)
+  {
+    if(error)
+      throw error;
+    else{
      res.send("data saved");
+    }
+  })
 }
 
 exports.checkcategory = (req, res) => {

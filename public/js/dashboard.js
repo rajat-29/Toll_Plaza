@@ -93,7 +93,6 @@ function fetchNumber()
     var obj = new Object();
     obj.entryDate = today;
 
-
     var totalStaff = document.getElementById('totalStaff');
     var totalCategories = document.getElementById('totalCategories');
     var totalPasses = document.getElementById('totalPasses');
@@ -139,7 +138,6 @@ function fetchNumber()
         countReceipt = JSON.parse(request3.responseText);
         todayReceipts.innerHTML = countReceipt;
     }
-
 }
 
 function getMonths(mno) {

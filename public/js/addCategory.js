@@ -5,7 +5,7 @@ var flag = 0;
 submitbtn.addEventListener("click", function () {
 	
 	if(catname.value == '')
-    {
+  {
       $.confirm({
       title: 'Category ?',
       content: "Category is Empty !! ",
@@ -19,9 +19,9 @@ submitbtn.addEventListener("click", function () {
           }
         });
         return;
-    }
+  }
 
-    var obj = new Object();
+  var obj = new Object();
 	obj.name = catname.value;
 
 	if(document.getElementById('activestatus').checked)
@@ -32,8 +32,8 @@ submitbtn.addEventListener("click", function () {
 	{
 		obj.status = "Inactive";
 	}
-    else
-    {
+  else
+  {
         $.confirm({
           title: 'Status ?',
           content: "Status is Empty !! ",
@@ -47,11 +47,10 @@ submitbtn.addEventListener("click", function () {
               }
             });
         return;
-    }
-    obj.createBy = window.sessionStorage.getItem('name');
+  }
 
-    if(flag == 1)
-    {
+  if(flag == 1)
+  {
         $.confirm({
           title: 'Category ?',
           content: "Category already Registered !! ",
@@ -64,9 +63,8 @@ submitbtn.addEventListener("click", function () {
               },
               }
             });
-    }
-    else
-    {
+  }
+  else {
         var request = new XMLHttpRequest();
         request.open('POST',"/admin/addnewCategory");
         request.setRequestHeader("Content-Type","application/json");
@@ -86,9 +84,8 @@ submitbtn.addEventListener("click", function () {
                   }
                 });
         }); 
-    }  
+  }  
 })
-
 
 function cat_check()
 {
