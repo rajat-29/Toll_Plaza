@@ -48,7 +48,7 @@ exports.showcategories = (req, res) => {
         params = {skip : parseInt(req.body.start) , limit : parseInt(req.body.length), sort : {name : sortingType}};
 
     category.find(query , {} , params , function (err , data)
-        {
+    {
             if(err)
                 console.log(err);
             else {
@@ -68,7 +68,7 @@ exports.showcategories = (req, res) => {
                     }
                 });
             }
-        })
+    })
 }
 
 exports.category = (req,res) => {

@@ -13,10 +13,10 @@ var table;
         "data" : "name"
       },
       {
-        "data" : "status", "orderable": false
+        "data" : "status",
       },
       {
-        "data" : "createBy", "orderable": false
+        "data" : "createBy", 
       },
       {
         "data" : null

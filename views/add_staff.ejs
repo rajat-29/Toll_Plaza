@@ -3,8 +3,6 @@
     <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
     <title>Add Staff</title>
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
@@ -12,87 +10,90 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-    <script src="js/dashboard.js"></script>
 </head>
 
 <body class="body">
-         <%- include ('partials/top-bar.ejs') %>
+    <%- include ('partials/top-bar.ejs') %>
         <div class="content-wrapper">
-         <div class="container">
-        <div class="row pad-botm">
-            <div class="col-md-12">
-                <h4 class="header-line">Add Staff</h4>    
+            <div class="container">
+                <div class="row pad-botm">
+                    <div class="col-md-12">
+                        <h4 class="header-line">Add Staff</h4>    
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <div class="alert alert-info" id="email_info" style="display : none">
+                            <center id="display_email"></center>
+                        </div>
+
+                        <div class="panel panel-info">
+
+                            <div class="panel-heading">
+                            Staff Info
+                            </div>
+
+                            <div class="panel-body">
+
+                                <div class="form-group">
+                                <label>Name <label style="color: red">*</label></label>
+                                <input class="form-control" type="text" name="author" autocomplete="off" id="staff_name" placeholder="Enter Name" required />
+                                </div>
+
+                                <div class="form-group">
+                                <label>Email <label style="color: red">*</label></label>
+                                <input class="form-control" type="text" name="author" autocomplete="off" id="staff_email" placeholder="Enter Email" onchange="email_avail()" required />
+                                </div>
+
+                                <div class="form-group">
+                                <label>Password <label style="color: red">*</label></label>
+                                <input class="form-control" type="password" name="author" autocomplete="off" id="staff_password" placeholder="Enter Password" required />
+                                </div>
+
+                                <div class="form-group">
+                                <label>Address <label style="color: red">*</label></label>
+                                <input class="form-control" type="text" name="author" autocomplete="off" id="staff_address" placeholder="Enter Address" required />
+                                </div>
+
+                                <div class="form-group">
+                                <label>Gender <label style="color: red">*</label></label>
+                                <select class="form-control" name="author" required="required" id="staff_gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                </div>
+
+                                <div class="form-group">
+                                <label>Role <label style="color: red">*</label></label>
+                                <select class="form-control" name="author" required="required" id="staff_role">
+                                    <option value="Staff">Staff</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                                </div>
+
+                                <div class="form-group">
+                                <label>Phone <label style="color: red">*</label></label>
+                                <input class="form-control" type="number" name="author" autocomplete="off" id="staff_phone" placeholder="Enter Phone" required />
+                                </div>
+
+                                <button type="submit" name="create" id="submitStudent" class="btn btn-info">Update </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-</div>
-<div class="row">
-<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
- <div class="alert alert-info" id="email_info" style="display : none">
-    <center id="display_email"></center>
-</div>
-
-<div class="panel panel-info">
-<div class="panel-heading">
-Staff Info
-</div>
-<div class="panel-body">
-
-<div class="form-group">
-<label>Name <label style="color: red">*</label></label>
-<input class="form-control" type="text" name="author" autocomplete="off" id="staff_name" placeholder="Enter Name" required />
-</div>
-
-<div class="form-group">
-<label>Email <label style="color: red">*</label></label>
-<input class="form-control" type="text" name="author" autocomplete="off" id="staff_email" placeholder="Enter Email" onchange="email_avail()" required />
-</div>
-
-<div class="form-group">
-<label>Password <label style="color: red">*</label></label>
-<input class="form-control" type="password" name="author" autocomplete="off" id="staff_password" placeholder="Enter Password" required />
-</div>
-
-<div class="form-group">
-<label>Address <label style="color: red">*</label></label>
-<input class="form-control" type="text" name="author" autocomplete="off" id="staff_address" placeholder="Enter Address" required />
-</div>
-
-<div class="form-group">
-<label>Gender <label style="color: red">*</label></label>
-<select class="form-control" name="author" required="required" id="staff_gender">
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-</select>
-</div>
-
-<div class="form-group">
-<label>Role <label style="color: red">*</label></label>
-<select class="form-control" name="author" required="required" id="staff_role">
-    <option value="Staff">Staff</option>
-    <option value="Admin">Admin</option>
-</select>
-</div>
-
-
-<div class="form-group">
-<label>Phone <label style="color: red">*</label></label>
-<input class="form-control" type="number" name="author" autocomplete="off" id="staff_phone" placeholder="Enter Phone" required />
-</div>
-
-<button type="submit" name="create" id="submitStudent" class="btn btn-info">Update </button>
-
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="footer-section1">
-        <p>Toll Management © 2019</p>
-    </div>
-            
-    <script type="text/javascript" src="js/addStaff.js"></script>
-    <script src="js/bootstrap.js"></script> 
+        </div>
+        
+        <div class="footer-section1">
+            <p>Toll Management © 2019</p>
+        </div>
+  
+<script src="js/dashboard.js"></script>              
+<script src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/addStaff.js"></script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+      
 </body>
 </html>

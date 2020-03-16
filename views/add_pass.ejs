@@ -3,8 +3,6 @@
     <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
     <title>Add Pass</title>
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
@@ -12,93 +10,96 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-    <script src="js/dashboard.js"></script>
 </head>
 
 <body class="body" onload="fetchselectoptions()">
-         <%- include ('partials/top-bar.ejs') %>
+    <%- include ('partials/top-bar.ejs') %>
         <div class="content-wrapper">
-         <div class="container">
-        <div class="row pad-botm">
-            <div class="col-md-12">
-                <h4 class="header-line">Add Pass</h4>    
+            <div class="container">
+                <div class="row pad-botm">
+                    <div class="col-md-12">
+                        <h4 class="header-line">Add Pass</h4>    
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <div class="alert alert-info" id="email_info" style="display : none">
+                            <center id="display_email"></center>
+                        </div>
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                            Pass Info
+                            </div>
+
+                            <div class="panel-body">
+
+                            <div class="form-group">
+                            <label>Vehicle Category <label style="color: red">*</label></label>
+                            <select class="form-control" name="author" required="required" id="vehicle_category">
+                            </select>
+                            </div>
+
+                            <div class="form-group">
+                            <label>Registration Number <label style="color: red">*</label></label>
+                            <input class="form-control" type="text" name="author" autocomplete="off" id="reg_number" placeholder="Enter Registration Number"  required />
+                            </div>
+
+                            <div class="form-group">
+                            <label>Validity From <label style="color: red">*</label></label>
+                            <input class="form-control" type="date" name="author" autocomplete="off" id="validity_from" placeholder="Enter Password" required />
+                            </div>
+
+                            <div class="form-group">
+                            <label>Validity To <label style="color: red">*</label></label>
+                            <input class="form-control" type="date" name="author" autocomplete="off" id="validity_to" placeholder="Enter Address" required />
+                            </div>
+
+                            <div class="form-group">
+                            <label>Applicant Name <label style="color: red">*</label></label>
+                            <input class="form-control" type="text" name="author" autocomplete="off" id="applicant_name" placeholder="Enter Applicant Name Number"  required />
+                            </div>
+
+
+                            <div class="form-group">
+                            <label>Age <label style="color: red">*</label></label>
+                            <input class="form-control" type="number" name="author" autocomplete="off" id="applicant_age" placeholder="Enter Applicant Age"  required />
+                            </div>
+
+
+                            <div class="form-group">
+                            <label>Address <label style="color: red">*</label></label>
+                            <input class="form-control" type="text" name="author" autocomplete="off" id="applicant_address" placeholder="Enter Applicant Address" required />
+                            </div>
+
+                            <div class="form-group">
+                            <label>Phone <label style="color: red">*</label></label>
+                            <input class="form-control" type="number" name="author" autocomplete="off" id="applicant_phone" placeholder="Enter Applicant Address" required />
+                            </div>
+
+                            <div class="form-group">
+                            <label>Balance <label style="color: red">*</label></label>
+                            <input class="form-control" type="number" name="author" autocomplete="off" id="applicant_balance" placeholder="Enter Applicant Balance" required />
+                            </div>
+
+                            <button type="submit" name="create" id="submitStudent" class="btn btn-info">Update </button>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-
-</div>
-<div class="row">
-<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
- <div class="alert alert-info" id="email_info" style="display : none">
-    <center id="display_email"></center>
-</div>
-
-<div class="panel panel-info">
-<div class="panel-heading">
-Pass Info
-</div>
-<div class="panel-body">
-
-<div class="form-group">
-<label>Vehicle Category <label style="color: red">*</label></label>
-<select class="form-control" name="author" required="required" id="vehicle_category">
-</select>
-</div>
-
-<div class="form-group">
-<label>Registration Number <label style="color: red">*</label></label>
-<input class="form-control" type="text" name="author" autocomplete="off" id="reg_number" placeholder="Enter Registration Number"  required />
-</div>
-
-<div class="form-group">
-<label>Validity From <label style="color: red">*</label></label>
-<input class="form-control" type="date" name="author" autocomplete="off" id="validity_from" placeholder="Enter Password" required />
-</div>
-
-<div class="form-group">
-<label>Validity To <label style="color: red">*</label></label>
-<input class="form-control" type="date" name="author" autocomplete="off" id="validity_to" placeholder="Enter Address" required />
-</div>
-
-<div class="form-group">
-<label>Applicant Name <label style="color: red">*</label></label>
-<input class="form-control" type="text" name="author" autocomplete="off" id="applicant_name" placeholder="Enter Applicant Name Number"  required />
-</div>
-
-
-<div class="form-group">
-<label>Age <label style="color: red">*</label></label>
-<input class="form-control" type="number" name="author" autocomplete="off" id="applicant_age" placeholder="Enter Applicant Age"  required />
-</div>
-
-
-<div class="form-group">
-<label>Address <label style="color: red">*</label></label>
-<input class="form-control" type="text" name="author" autocomplete="off" id="applicant_address" placeholder="Enter Applicant Address" required />
-</div>
-
-<div class="form-group">
-<label>Phone <label style="color: red">*</label></label>
-<input class="form-control" type="number" name="author" autocomplete="off" id="applicant_phone" placeholder="Enter Applicant Address" required />
-</div>
-
-<div class="form-group">
-<label>Balance <label style="color: red">*</label></label>
-<input class="form-control" type="number" name="author" autocomplete="off" id="applicant_balance" placeholder="Enter Applicant Balance" required />
-</div>
-
-<button type="submit" name="create" id="submitStudent" class="btn btn-info">Update </button>
-
+        </div>
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+    
     <div class="footer-section1">
         <p>Toll Management © 2019</p>
     </div>
-            
-    <script type="text/javascript" src="js/addPass.js"></script>
-    <script src="js/bootstrap.js"></script> 
+
+<script src="js/dashboard.js"></script>            
+<script type="text/javascript" src="js/addPass.js"></script>
+<script src="js/bootstrap.js"></script>      
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
 </body>
 </html>

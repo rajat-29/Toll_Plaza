@@ -11,22 +11,22 @@
       },
       "columns": [
       {
-        "data" : "name"
+        "data" : "name",
       },
       {
-        "data" : "email"
+        "data" : "email",
       },
       {
-        "data" : "address"
+        "data" : "address",
       },
       {
-        "data" : "phone", "orderable": false
+        "data" : "phone", 
       },
       {
-        "data" : "gender", "orderable": false
+        "data" : "gender", 
       },
       {
-        "data" : "role", "orderable": false
+        "data" : "role", 
       },
       {
         "data" : null
@@ -56,7 +56,6 @@
               action: function () {
                btnClass: 'btn-red any-other-class'
                var filename = '/admin/students/' + ides;
-            
                var request = new XMLHttpRequest();
                request.open('DELETE',filename);
                request.send()
