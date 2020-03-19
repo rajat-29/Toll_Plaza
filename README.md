@@ -14,14 +14,14 @@ Toll Management System to manage toll plaza and vehicle passes using bootstrap,N
 </ul>
 
 ## How To Run?
-It will run under the url http://127.0.0.1:8000/
+It will run under the url http://127.0.0.1:3000/
 
 ## How to Use ?
 <ol type="number">
 <li>Use mongorestore command to add database to your Local Machine.</li>
 <li>Run Mongo Server</li>
 <li>Run Server File app.js</li>
-<li>Run local host on port number 8000</li>
+<li>Run local host on port number 3000</li>
 </ol>
 
 ## Extra Dependencies :
