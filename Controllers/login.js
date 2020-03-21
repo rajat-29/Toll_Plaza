@@ -22,7 +22,6 @@ exports.checkLogin = (req, res) => {
                     req.session.email = req.body.name;
                     req.session.name = result.name;       
                     req.session.role = result.role;
-                    req.session.password = result.password;
                     res.send(req.session);   
                 }
                 else {

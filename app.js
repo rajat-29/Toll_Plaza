@@ -3,11 +3,12 @@ var path = require('path');
 var app = express();
 var session = require('express-session');
 var ejs = require('ejs');
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 var http = require('http');
 var server = http.Server(app);
 var bodyParser = require("body-parser");
 var mongoStore = require("connect-mongo")(session);
+
 
 require("dotenv").config();
 
@@ -24,7 +25,6 @@ app.use(express.static(path.join(__dirname,'/public')))
 
 // DB //
 require("./static/db");
-
 
 /* Mongoose Connectopn */
 var mongoose = require("mongoose");
