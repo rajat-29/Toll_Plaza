@@ -1,8 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Login from './Components/Login';
-import NavBar from './Components/NavBar';
+import Login from "./Components/login.component";
+import AdminNavBar from "./Components/adminnavbar.component";
+
 
 class App extends Component {
 
@@ -37,10 +39,13 @@ class App extends Component {
 	render() {
 		return (
 			this.state.isLogined ?
-			<div>
-			<NavBar />
-		      
-		    </div>
+			<Router>
+				<div className="container">
+					<AdminNavBar />
+					<br />
+
+				</div>
+			</Router>
 		    : <Login onSubmit={this.changeLogin}/>
 		)
 	}

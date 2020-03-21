@@ -39,7 +39,7 @@ class Login extends Component {
 		axios.post('/login/checkLogin',user_details)
 		.then(res => {
 			console.log(res.data)
-			if(res.data.isLogin == 1)
+			if(res.data.isLogin === 1)
 			{
 				sessionStorage.setItem("name", this.state.user_email);
 	       		this.props.onSubmit();
