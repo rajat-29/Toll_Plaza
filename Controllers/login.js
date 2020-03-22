@@ -14,15 +14,17 @@ exports.checkLogin = (req, res) => {
         throw error;
 
         if(!result) 
-            res.send("false");
+            res.send("notexits");
         else {
             bcrypt.compare(req.body.password,result.password,function(err,resi) {
                 if(resi == true) {
-                    req.session.isLogin = 1;
-                    req.session.email = req.body.name;
-                    req.session.name = result.name;       
-                    req.session.role = result.role;
-                    res.send(req.session);   
+                  req.session.isLogin = 1;
+                  req.session.email = req.body.name;
+                  req.session.name = result.name;       
+                  req.session.role = result.role;
+
+                  var re = req.session.redirectUrl || '/login/home';
+                  res.send(re);
                 }
                 else {
                   res.send("false")

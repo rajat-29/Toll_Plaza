@@ -41,16 +41,16 @@ function changePassword() {
 function openlogoutpage()
 {
     $.confirm({
-    theme: 'supervan',
+    theme: 'modern',
     title: 'Confirm Logout!',
     content: 'Do you really want logout?',
+    type: 'red',
+    typeAnimated: true,
     draggable: true,
     buttons: {
         Yes: {
+            btnClass: 'btn btn-danger',
             action: function () {
-            	window.sessionStorage.removeItem('email');
-            	window.sessionStorage.removeItem('name');
-            	window.sessionStorage.removeItem('role');
              	window.location = "/login/logout_person";
         }
     },

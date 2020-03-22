@@ -25,23 +25,38 @@ submit_btn.addEventListener("click", function () {
 	request.setRequestHeader("Content-Type", "application/json");
 	request.send(JSON.stringify({name : email_add.value,password : user_pass.value}))
 	request.addEventListener("load", function () {
-		var data = JSON.parse(request.responseText)
-		if(data.isLogin === 1) {
-            window.location = "/login/home";
+		var data = request.responseText;
+		if(data === 'notexits') {
+    		$.confirm({
+	            title: 'Email ?',
+	            content: "Email Don't Exits !!",
+	            draggable: true,
+	            buttons: {
+	            OK: {
+	                btnClass: 'btn-danger any-other-class',
+	                 action: function () {      
+	                }
+	            },
+	            }
+        	});
         }
-        else {
-        	$.confirm({
-		      title: 'Fields ?',
-		      content: "Wrong Email or Password !! ",
-		      draggable: true,
-		      buttons: {
-		        OK: {
-		            btnClass: 'btn-danger any-other-class',
-		             action: function () {      
-		          }
-		          },
-		          }
-		    });
+        else if(data === 'false')
+        {
+            $.confirm({
+	            title: 'Password ?',
+	            content: "Password is not Correct !!",
+	            draggable: true,
+	            buttons: {
+	            OK: {
+	                btnClass: 'btn-danger any-other-class',
+	                 action: function () {      
+	                }
+	            },
+	            }
+        	});
         }
+    	else {
+            window.location = data;
+    	}
 	})
 })
