@@ -3,12 +3,11 @@ var path = require('path');
 var app = express();
 var session = require('express-session');
 var ejs = require('ejs');
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 var http = require('http');
 var server = http.Server(app);
 var bodyParser = require("body-parser");
 var mongoStore = require("connect-mongo")(session);
-
 
 require("dotenv").config();
 
@@ -24,12 +23,11 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname,'/public')))
 
 // DB //
-require("./static/db");
+require("./config/db");
 
 /* Mongoose Connectopn */
 var mongoose = require("mongoose");
 var db = mongoose.connection;
-
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())                 /*include express*/
