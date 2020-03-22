@@ -42,6 +42,10 @@ app.use(session({
 
 app.use('/',require('./Routes/'));
 
+app.get('/', function(req,res) {
+  res.render('index');
+})
+
 server.listen(port, () => {
 	console.log('Running on port ' +port);
 });
