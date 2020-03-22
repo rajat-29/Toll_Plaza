@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Login from "./Components/login.component";
 import AdminNavBar from "./Components/adminnavbar.component";
-
+import CreateCategory from "./Components/Admin/createCategory.component";
 
 class App extends Component {
 
@@ -43,7 +43,7 @@ class App extends Component {
 				<div className="container">
 					<AdminNavBar />
 					<br />
-
+					<Route path="/" exact component={CreateCategory} />
 				</div>
 			</Router>
 		    : <Login onSubmit={this.changeLogin}/>
