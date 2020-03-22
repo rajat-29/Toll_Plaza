@@ -42,8 +42,8 @@ function openlogoutpage()
 {
     $.confirm({
     theme: 'modern',
-    title: 'Confirm Logout!',
-    content: 'Do you really want logout?',
+    title: 'Confirm Logout ?',
+    content: 'Do you really want to logout?',
     type: 'red',
     typeAnimated: true,
     draggable: true,

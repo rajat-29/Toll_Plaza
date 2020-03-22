@@ -43,7 +43,7 @@ app.use(session({
 app.use('/',require('./Routes/'));
 
 app.get('/', function(req,res) {
-  res.render('index');
+  res.render('login');
 })
 
 server.listen(port, () => {
