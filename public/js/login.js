@@ -20,6 +20,23 @@ submit_btn.addEventListener("click", function () {
 		return;
 	}
 
+	if(!ValidateEmail(email_add.value))
+	{
+		$.confirm({
+	      title: 'Email format ?',
+	      content: "Email format is not valid !! ",
+	      draggable: true,
+	      buttons: {
+	        OK: {
+	            btnClass: 'btn-danger any-other-class',
+	             action: function () {      
+	          }
+	          },
+	          }
+	        });
+		return;
+	}
+
 	var request = new XMLHttpRequest();
 	request.open('POST',"/login/checklogin");
 	request.setRequestHeader("Content-Type", "application/json");
@@ -60,3 +77,12 @@ submit_btn.addEventListener("click", function () {
     	}
 	})
 })
+
+function ValidateEmail(mail) 
+{
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return (true)
+  }
+    return (false)
+}
