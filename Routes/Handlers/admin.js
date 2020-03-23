@@ -78,8 +78,6 @@ app.use('/showPass',auth,adminController.showPass);
 
 app.use('/passes/:pro',auth,adminController.passes);
 
-app.use('/findBetweenDatePass',auth,adminController.findBetweenDatePass);
-
 app.use('/FindpassesCount',auth,adminController.FindpassesCount);
 
 app.use('/FindpassesSale',auth,adminController.FindpassesSale);

@@ -40,12 +40,12 @@ function openlogoutpage()
     theme: 'modern',
     title: 'Confirm Logout ?',
     content: 'Do you really want to logout?',
-    type: 'red',
+    type: 'green',
     typeAnimated: true,
     draggable: true,
     buttons: {
         Yes: {
-            btnClass: 'btn btn-danger',
+            btnClass: 'btn btn-success',
             action: function () {
              	window.location = "/login/logout_person";
         }

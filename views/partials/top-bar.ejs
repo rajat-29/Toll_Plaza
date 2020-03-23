@@ -1,87 +1,90 @@
-<section class="menu-section">
+<nav class="navbar fixed-top navbar-dark navbar-expand-md bg-success text-white">
     <div class="container">
-        <div class="row ">
-            <div class="col-md-12">
-                <div class="navbar-collapse collapse ">
+        <div class="collpase navbar-collapse">
 
-                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+            <ul id="menu-top" class="nav navbar-nav navbar-right">
 
-                        <% if(data.role == "Admin"){ %>
-                            <li id="manageCat">
-                                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Categories <i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" onclick="addCategory()">Add Category</a></li>
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="manageCategory()">Manage Categories</a></li>
-                                </ul>
-                            </li>
-                         <% } %>  
+                <% if(data.role == "Admin"){ %>
+
+                    <li id="manageCat">
+
+                        <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Categories <i class="fa fa-angle-down"></i></a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" onclick="addCategory()">Add Category</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" onclick="manageCategory()">Manage Categories</a></li>
+                        </ul>
+                    </li>
+                <% } %>  
                            
-                        <% if(data.role == "Admin"){ %>      
-                             <li id="manageStaff">
-                                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Staff <i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" onclick="addStaff()">Add Staff</a></li>
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="manageStaff()">Manage Staff</a></li>
-                                </ul>
-                            </li>
-                        <% } %>     
+                <% if(data.role == "Admin"){ %>
 
-                        <% if(data.role == "Admin"){ %>
-                            <li id="managePass">
-                                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Pass <i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" onclick="addPass()">Add Pass</a></li>
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="managePass()">Manage Pass</a></li>
-                                </ul>
-                            </li>
-                        <% } %>
+                    <li id="manageStaff">
+                        <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Staff <i class="fa fa-angle-down"></i></a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" onclick="addStaff()">Add Staff</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" onclick="manageStaff()">Manage Staff</a></li>
+                        </ul>
+                    </li>
+                <% } %>     
+
+                <% if(data.role == "Admin"){ %>
+                    <li id="managePass">
+
+                        <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Pass <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" onclick="addPass()">Add Pass</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" onclick="managePass()">Manage Pass</a></li>
+                        </ul>
+                    </li>
+                <% } %>
                              
-                        <% if(data.role == "Admin"){ %>
-                            <li id="passReport">
-                                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Pass Reports<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="passCount()">Pass Count</a></li>
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="passSales()">Sales</a></li>
-                                </ul>
-                            </li>
-                        <% } %>                            
+                <% if(data.role == "Admin"){ %>
+                    <li id="passReport">
 
-                        <% if(data.role == "Admin"){ %>
-                            <li id="receiptReport">
-                                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Receipt Reports<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="manageReceipts()">Manage Receipts</a></li>
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="receiptCount()">Receipt Count</a></li>
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" onclick="receiptSales()">Sales</a></li>
+                        <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Pass Reports<i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" onclick="passCount()">Pass Count</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" onclick="passSales()">Sales</a></li>
+                        </ul>
+                    </li>
+                <% } %>                            
 
-                                </ul>
-                            </li>
-                        <% } %>   
+                <% if(data.role == "Admin"){ %>
+                    <li id="receiptReport">
+
+                        <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Receipt Reports<i class="fa fa-angle-down"></i></a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="manageReceipts()">Manage Receipts</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="receiptCount()">Receipt Count</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="receiptSales()">Sales</a></li>
+                        </ul>
+                    </li>
+                <% } %>   
                          
-                        <% if(data.role == "Staff"){ %>
-                            <li id="addReceipt">
-                                <a onclick="addReceipts()">Add Receipt</a>
-                            </li>
-                        <% } %>       
+                <% if(data.role == "Staff"){ %>
+                    <li id="addReceipt">
+                        <a onclick="addReceipts()">Add Receipt</a>
+                    </li>
+                <% } %>       
 
-                        <% if(data.role == "Staff"){ %>
-                            <li id="passUser">
-                                <a onclick="passUser()">Pass User</a>
-                            </li>
-                        <% } %>       
+                <% if(data.role == "Staff"){ %>
+                    <li id="passUser">
+                        <a onclick="passUser()">Pass User</a>
+                    </li>
+                <% } %>       
              
-                            <li>
-                                <a onclick="changePassword()">Change Password</a>
-                            </li>
+                <li>
+                    <a onclick="changePassword()">Change Password</a>
+                </li>
 
-                            <li>
-                                <a onclick="openlogoutpage()">Logout</a>
-                            </li>
+                <li>
+                    <a onclick="openlogoutpage()">Logout</a>
+                </li>
 
-                       </ul>
-
-                </div>
-            </div>
+            </ul>
         </div>
     </div>
-</section>
+</nav>
