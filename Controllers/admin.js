@@ -255,55 +255,12 @@ exports.passes = (req,res) => {
       });
 }
 
-exports.findBetweenDatePass = (req, res)  => {
-
-  let params = {};
-  let fil = {};
-
-  fil= { validityFrom : {$gte : new Date(req.body.validityFrom)} , 
-          validityTo: {$lte : new Date(req.body.validityTo)} }
-  
-  let sortingType;
-  if(req.body.order[0].dir === 'asc')
-    sortingType = 1;
-  else
-    sortingType = -1;
-
-    if(req.body.order[0].column === '0')
-        params = {skip : parseInt(req.body.start) , limit : parseInt(req.body.length), sort : {phone : sortingType}};
-
-        passes.find(fil ,{} ,params, function (err , data)
-        {
-            if(err)
-                console.log(err);
-            else {
-                passes.countDocuments(fil,function(err , filteredCount)
-                {
-                    if(err)
-                        console.log(err);
-                    else {
-                        passes.countDocuments(function (err, totalCount)
-                        {
-                            if(err)
-                                console.log(err);
-                            else
-                            {
-                                res.send({"recordsTotal": totalCount,
-                                    "recordsFiltered": filteredCount, data});
-                            }
-                        })
-                    }
-                });
-            }
-        })
-}
-
 exports.FindpassesCount = (req,res) => {
   passes.aggregate(
          [{
           $project : {
-            month : {$month : "$validityFrom"},
-            year : {$year : "$validityFrom"},
+            month : {$month : "$issueDate"},
+            year : {$year : "$issueDate"},
             balance : 1
           }},
           {
@@ -320,8 +277,8 @@ exports.FindpassesSale = (req,res) => {
   passes.aggregate(
          [{
           $project : {
-            month : {$month : "$validityFrom"},
-            year : {$year : "$validityFrom"},
+            month : {$month : "$issueDate"},
+            year : {$year : "$issueDate"},
             balance : 1
           }},
           {

@@ -11,28 +11,25 @@
       },
       "columns": [
       {
-        "data" : "category"
+        "data" : "category",
       },
       {
-        "data" : "registration"
+        "data" : "registration",
       },
       {
-        "data" : "validityFrom"
+        "data" : "issueDate",
       },
       {
-        "data" : "validityTo", "orderable": false
+        "data" : "name",
       },
       {
-        "data" : "name", "orderable": false
+        "data" : "address",
       },
       {
-        "data" : "address", "orderable": false
+        "data" : "phone", 
       },
       {
-        "data" : "phone", "orderable": false
-      },
-      {
-        "data" : "balance", "orderable": false
+        "data" : "balance", 
       },
       {
         "data" : null

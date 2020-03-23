@@ -32,10 +32,6 @@ app.get('/managePass',auth, function(req,res) {
   res.render('manage_pass',{data:req.session});
 })
 
-app.get('/betweenDatesPass',auth, function(req,res) {
-  res.render('betweenDatesPass',{data:req.session});
-})
-
 app.get('/passCount',auth, function(req,res) {
   res.render('passCount',{data:req.session});
 })

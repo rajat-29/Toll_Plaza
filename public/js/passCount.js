@@ -13,6 +13,7 @@ function salesReport() {
     request.send();
 }
 
+
 function addToTable(obj)
 {
 	var x=document.getElementById('categories').insertRow(-1);

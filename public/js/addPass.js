@@ -1,21 +1,21 @@
-var submitStudent = document.getElementById('submitStudent');
 var vehicle_category = document.getElementById('vehicle_category');
 var reg_number = document.getElementById('reg_number');
-var validity_from = document.getElementById('validity_from');
-var validity_to = document.getElementById('validity_to');
+var issue_date = document.getElementById('issue_date');
 var applicant_name = document.getElementById('applicant_name');
 var applicant_age = document.getElementById('applicant_age');
 var applicant_address = document.getElementById('applicant_address');
 var applicant_phone = document.getElementById('applicant_phone');
 var applicant_balance = document.getElementById('applicant_balance');
 
-submitStudent.addEventListener("click", function() {
+var submitPass = document.getElementById('submitPass');
+
+submitPass.addEventListener("click", function() {
 
 	var ph = applicant_phone.value;
 
-	if(reg_number.value == '' || validity_from.value == ''|| 
-	 	validity_to.value == '' || applicant_name.value == ''|| applicant_age.value == '' ||
-	 	applicant_address.value == '' || applicant_phone.value == ''|| applicant_balance.value == '')
+	if(reg_number.value == '' || issue_date.value == ''|| applicant_name.value == ''|| 
+		applicant_age.value == '' || applicant_address.value == '' || 
+		applicant_phone.value == ''|| applicant_balance.value == '')
 	{
 		$.confirm({
 	      title: 'Fields ?',
@@ -51,8 +51,7 @@ submitStudent.addEventListener("click", function() {
 	var obj = new Object();
 	obj.category = vehicle_category.value;
 	obj.registration = reg_number.value;
-	obj.validityFrom = validity_from.value;
-	obj.validityTo = validity_to.value;
+	obj.issueDate = issue_date.value;
 	obj.name = applicant_name.value
 	obj.age = applicant_age.value;
 	obj.address = applicant_address.value;

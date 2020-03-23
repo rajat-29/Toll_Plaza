@@ -8,10 +8,7 @@ var passSchema = new mongoose.Schema({
 	registration : {
 		type: String,
 	},
-	validityFrom : {
-		type: Date,
-	},
-	validityTo : {
+	issueDate : {
 		type: Date,
 	},
 	name : {
