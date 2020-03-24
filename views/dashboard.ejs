@@ -15,19 +15,18 @@
         <%- include ('partials/navbar.ejs') %>
         <div class="content-wrapper">
             <div class="container">
-                <div class="row pad-botm">
+
                 <% if(data.role == "Admin"){ %>  
                     <div class="col-md-12">
-                        <h4 class="header-line">ADMIN DASHBOARD</h4>
+                        <center><h4 class="header-line">ADMIN DASHBOARD</h4></center>
                     </div>
                 <%  } %>
 
                 <% if(data.role == "Staff"){ %>  
                     <div class="col-md-12">
-                        <h4 class="header-line">User DASHBOARD</h4>
+                        <center><h4 class="header-line">User DASHBOARD</h4></center>
                     </div>
                 <%  } %>
-                </div>
             
                 <div class="row">
                     <div class="col-md-3 col-sm-3">

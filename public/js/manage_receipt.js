@@ -1,7 +1,7 @@
  var table;
 
  $(document).ready(function() {
-      table = $('#studentListing').DataTable({
+      table = $('#receiptses').DataTable({
       "processing": true,
       "serverSide": true,
       "dataSrc":"",
