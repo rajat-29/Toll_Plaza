@@ -13,7 +13,7 @@
 </head>
 
 <body class="body" onload="fetchselectoptions()">
-    <%- include ('partials/top-bar.ejs') %>
+    <%- include ('partials/navbar.ejs') %>
         <div class="content-wrapper">
             <div class="container">
                 <div class="row pad-botm">
@@ -84,9 +84,7 @@
         </div>
     </div>
     
-    <div class="footer-section">
-        <p>Toll Management © 2019</p>
-    </div>
+    <%- include('partials/footbar.ejs') %>
 
 <script src="js/dashboard.js"></script>            
 <script type="text/javascript" src="js/addPass.js"></script>
