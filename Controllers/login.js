@@ -1,76 +1,37 @@
-const bcrypt = require('bcrypt');
-let saltRounds = 10
-
-var users = require('../Models/userSchema');
-var category = require('../Models/categorySchema');
-var passes = require('../Models/passSchema');
-var receipts = require('../Models/receiptSchema');
+let loginService = require('../Services/login');
 
 exports.checkLogin = (req, res) => {
-    req.session.isLogin = 0;
-    users.findOne({email: req.body.name}, function(error,result)
-    {
-        if(error)
-        throw error;
+  loginService.checkLogin({
 
-        if(!result) 
-            res.send("notexits");
-        else {
-            bcrypt.compare(req.body.password,result.password,function(err,resi) {
-                if(resi == true) {
-                  req.session.isLogin = 1;
-                  req.session.email = req.body.name;
-                  req.session.name = result.name;       
-                  req.session.role = result.role;
-
-                  var re = req.session.redirectUrl || '/login/home';
-                  res.send(re);
-                }
-                else {
-                  res.send("false")
-                }
-           })    
-        }
-    })     
+  },req,res);     
 }
 
-exports.changePasswordDatabase = (req,res) => {
-    bcrypt.hash(req.body.newpass, saltRounds, (err, hash) => {
-              if(!err) {
-                users.updateOne({"email" : req.session.email},{$set: { "password" : hash}} ,
-                  function(error,result)
-                  {
-                    if(error)
-                      throw error;
-                    else
-                      req.session.password = req.body.newpass;
-                  })   
-              }
-              else {}
-    }) 
-    res.send("Password Changed Successfully")
+exports.changePassword = (req,res) => {
+  loginService.changePassword({
+    _id : req.session._id,
+  },req,res);
 }
 
 exports.totalNoofUsers = (req, res) => {
-      users.countDocuments(function(e,count){
-          res.send(JSON.stringify(count));
-   });
+  loginService.totalNoofUsers({
+    
+  },req,res); 
 }
 
 exports.totalNoofCategory = (req, res) => {
-      category.countDocuments(function(e,count){
-          res.send(JSON.stringify(count));
-   });
+  loginService.totalNoofCategory({
+    
+  },req,res);
 }
 
 exports.totalNoofPasses = (req, res) => {
-   passes.countDocuments(function(e,count){
-          res.send(JSON.stringify(count));
-   });
+  loginService.totalNoofPasses({
+    
+  },req,res);
 }
 
 exports.totalReceiptsToday = (req, res) => {
-    receipts.countDocuments({entryDate: req.body.entryDate}, function(error,count) {
-        res.send(JSON.stringify(count));
-    })
+  loginService.totalReceiptsToday({
+    entryDate: req.body.entryDate
+  },req,res);
 }

@@ -113,13 +113,12 @@ submitbtn.addEventListener("click", function() {
     }
 
     var obj = new Object();
-	obj.oldpass = oldpass.value;
 	obj.newpass = newpass.value;
 
     if(len == 1 && small == 1 && big == 1 && no == 1 && mat == 1)
     {
     	var request = new XMLHttpRequest();
-		request.open('POST', '/login/changePasswordDatabase');
+		request.open('POST', '/login/changePassword');
 	    request.setRequestHeader("Content-Type","application/json");
 	    request.send(JSON.stringify(obj))
 	    request.onload = function ()

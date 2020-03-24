@@ -26,7 +26,7 @@ app.get('/logout_person',auth, function(req,res) {
 
 app.use('/checkLogin',loginController.checkLogin);
 
-app.use('/changePasswordDatabase',auth,loginController.changePasswordDatabase);
+app.use('/changePassword',auth,loginController.changePassword);
 
 app.use('/totalNoofUsers',auth,loginController.totalNoofUsers);
 
