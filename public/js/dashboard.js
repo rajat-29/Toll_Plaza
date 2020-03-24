@@ -30,6 +30,10 @@ function passSales() {
 	window.location = "/admin/passSales";
 }
 
+function openHomePage() {
+    window.location = "/login/home";
+}
+
 function changePassword() {
 	window.location = "/login/changePassword";
 }
