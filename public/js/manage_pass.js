@@ -58,7 +58,7 @@
              btnClass: 'btn-success any-other-class',
               action: function () {
                btnClass: 'btn-red any-other-class'
-               var filename = '/admin/passes/' + ides;
+               var filename = '/admin/deletePass/' + ides;
             
                var request = new XMLHttpRequest();
                request.open('DELETE',filename);

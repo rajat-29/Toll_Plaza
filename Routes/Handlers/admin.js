@@ -60,7 +60,7 @@ app.use('/checkcategory',auth,adminController.checkcategory);
 
 app.use('/showcategories',auth,adminController.showcategories);
 
-app.use('/category/:pro',auth,adminController.category);
+app.use('/deleteCategory/:pro',auth,adminController.deleteCategory);
 
 app.use('/addnewuser',auth,adminController.addnewuser);
 
@@ -68,7 +68,7 @@ app.use('/checkemail',auth,adminController.checkemail);
 
 app.use('/showStaff',auth,adminController.showStaff);
 
-app.use('/students/:pro',auth,adminController.students);
+app.use('/deleteStaff/:pro',auth,adminController.deleteStaff);
 
 app.use('/categoryOptions',auth,adminController.categoryOptions);
 
@@ -76,7 +76,7 @@ app.use('/addnewpass',auth,adminController.addnewpass);
 
 app.use('/showPass',auth,adminController.showPass);
 
-app.use('/passes/:pro',auth,adminController.passes);
+app.use('/deletePass/:pro',auth,adminController.deletePass);
 
 app.use('/FindpassesCount',auth,adminController.FindpassesCount);
 
@@ -88,6 +88,6 @@ app.use('/FindreceiptCount',auth,adminController.FindreceiptCount);
 
 app.use('/FindreceiptSale',auth,adminController.FindreceiptSale);
 
-app.use('/receipts/:pro',auth,adminController.receipts);
+app.use('/deleteReceipt/:pro',auth,adminController.deleteReceipt);
 
 module.exports = app;

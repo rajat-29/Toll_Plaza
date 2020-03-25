@@ -55,7 +55,7 @@
              btnClass: 'btn-success any-other-class',
               action: function () {
                btnClass: 'btn-red any-other-class'
-               var filename = '/admin/receipts/' + ides;
+               var filename = '/admin/deleteReceipt/' + ides;
             
                var request = new XMLHttpRequest();
                request.open('DELETE',filename);

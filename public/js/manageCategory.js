@@ -45,7 +45,7 @@ function deleteTag(ides)
              btnClass: 'btn-success any-other-class',
               action: function () {
                btnClass: 'btn-red any-other-class'
-               var filename = '/admin/category/' + ides;
+               var filename = '/admin/deleteCategory/' + ides;
                var request = new XMLHttpRequest();
                request.open('DELETE',filename);
                request.send()
