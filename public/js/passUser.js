@@ -1,9 +1,7 @@
-var allowCar = document.getElementById('allowCar');
+var allowVehicle = document.getElementById('allowVehicle');
 var vehicle_category = document.getElementById('vehicle_category');
 var balance = document.getElementById('balance');
-var validTo = document.getElementById('validTo');
 var cost = document.getElementById('cost');
-
 var commArr;
 
 function catValue() 
@@ -34,8 +32,7 @@ function catValue()
 	}
 }
 
-
-allowCar.addEventListener("click", function() {
+allowVehicle.addEventListener("click", function() {
 
 	if(vehicle_number.value == '')
 	{
@@ -84,7 +81,6 @@ function reducePassBalance()
 	var obj = new Object();
 	obj.registration = vehicle_number.value;
 	obj.balance = (commArr.balance - catValue());
-	console.log(obj);
 
 	var request = new XMLHttpRequest();
     request.open('POST',"/staff/reducePassBalance");
@@ -95,7 +91,7 @@ function reducePassBalance()
     }); 
 }
 
-function twoWaycheck() 
+function checkForPass() 
 {
     var obj = new Object();
 	obj.vehicleNumber = vehicle_number.value;
@@ -106,7 +102,7 @@ function twoWaycheck()
     request.send(JSON.stringify(obj))
     request.addEventListener("load",function() {
         commArr = JSON.parse(request.responseText);
-        document.getElementById('allowCar').style.visibility = 'none';
+
         if(request.responseText == "false")
         {
         	$.confirm({
@@ -123,18 +119,28 @@ function twoWaycheck()
 		          }
 		    });
         }
-        else
-        {
+        else {
         	vehicle_category.innerHTML = commArr.category;
 	        balance.innerHTML = commArr.balance;
-	        validTo.innerHTML = commArr.validityTo;
 	        var receipt_cost = catValue();
 	        cost.innerHTML = receipt_cost;
-	        if(commArr.balance - receipt_cost < 0)
-	        	alert("Low Balance");
+	        if(commArr.balance - receipt_cost < 0) {
+	        	$.confirm({
+		      	title: 'Balance ?',
+		      	content: "Low Balance !! ",
+		      	draggable: true,
+		      	buttons: {
+		        	OK: {
+		            btnClass: 'btn-danger any-other-class',
+		             action: function () {    
+		          	}
+		          	},
+		          }
+		    	});
+	        }
 	        else
 	        	document.getElementById('allowCar').style.visibility = 'visible';
-	        }
+	    }
     });  
 }
 

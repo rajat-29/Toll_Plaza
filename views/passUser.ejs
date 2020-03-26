@@ -3,9 +3,6 @@
     <head>
     <meta charset="utf-8" />
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
     <title>Pass User</title>
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
@@ -36,17 +33,12 @@
 
         <div class="form-group">
             <label>Vehicle Number <label style="color: red">*</label></label>
-            <input class="form-control" type="text" name="author" autocomplete="off" id="vehicle_number" placeholder="Enter Vehicle Number" required onchange="twoWaycheck()" />
+            <input class="form-control" type="text" id="vehicle_number" placeholder="Enter Vehicle Number" required onchange="checkForPass()" />
         </div>
 
         <div class="form-group">
             <label>Category : </label>
             <span id="vehicle_category"></span>
-        </div>
-
-        <div class="form-group">
-            <label>Valid To : </label>
-            <span id="validTo"></span>
         </div>
 
         <div class="form-group">
@@ -59,7 +51,7 @@
             <span id="cost"></span>
         </div>
 
-        <button type="submit" name="create" id="allowCar" class="btn btn-success" style="visibility: hidden">Allow </button>
+        <button type="submit" name="create" id="allowVehicle" class="btn btn-success" style="visibility: hidden">Allow </button>
         </div>
         </div>
         </div>
