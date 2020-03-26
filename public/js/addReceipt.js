@@ -47,7 +47,7 @@ submitVechile.addEventListener("click", function() {
 	      draggable: true,
 	      buttons: {
 	        OK: {
-	            btnClass: 'btn-danger any-other-class',
+	            btnClass: 'btn-success any-other-class',
 	             action: function () {      
 	          }
 	          },
@@ -93,7 +93,7 @@ submitVechile.addEventListener("click", function() {
 	      draggable: true,
 	      buttons: {
 	        OK: {
-	            btnClass: 'btn-danger any-other-class',
+	            btnClass: 'btn-success any-other-class',
 	             action: function () { 
 	             	location.reload();     
 	          }
@@ -157,7 +157,7 @@ allowVechile.addEventListener("click", function() {
 	      draggable: true,
 	      buttons: {
 	        OK: {
-	            btnClass: 'btn-danger any-other-class',
+	            btnClass: 'btn-success any-other-class',
 	             action: function () { 
 	             	location.reload();     
 	          }

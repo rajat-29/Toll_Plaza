@@ -23,7 +23,7 @@ submitPass.addEventListener("click", function() {
 	      draggable: true,
 	      buttons: {
 	        OK: {
-	            btnClass: 'btn-danger any-other-class',
+	            btnClass: 'btn-success any-other-class',
 	             action: function () {      
 	          }
 	          },
@@ -39,7 +39,7 @@ submitPass.addEventListener("click", function() {
 	      draggable: true,
 	      buttons: {
 	        OK: {
-	            btnClass: 'btn-danger any-other-class',
+	            btnClass: 'btn-success any-other-class',
 	             action: function () {      
 	          }
 	          },
@@ -69,7 +69,7 @@ submitPass.addEventListener("click", function() {
 	      draggable: true,
 	      buttons: {
 	        OK: {
-	            btnClass: 'btn-danger any-other-class',
+	            btnClass: 'btn-success any-other-class',
 	             action: function () { 
 	             	location.reload();     
 	          }

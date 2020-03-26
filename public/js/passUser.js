@@ -111,7 +111,7 @@ function checkForPass()
 		      draggable: true,
 		      buttons: {
 		        OK: {
-		            btnClass: 'btn-danger any-other-class',
+		            btnClass: 'btn-success any-other-class',
 		             action: function () { 
 		             location.reload();     
 		          }
@@ -131,7 +131,7 @@ function checkForPass()
 		      	draggable: true,
 		      	buttons: {
 		        	OK: {
-		            btnClass: 'btn-danger any-other-class',
+		            btnClass: 'btn-success any-other-class',
 		             action: function () {    
 		          	}
 		          	},
