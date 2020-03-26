@@ -8,86 +8,86 @@ var auth = require('../../MiddleWares/auth');
 
 let adminController = require('../../Controllers/admin');
 
-app.get('/addCategory',auth, function(req,res) {
+app.get('/addCategory',auth.checkAdmin, function(req,res) {
 	res.render('add_category',{data:req.session});
 })
 
-app.get('/manageCategory',auth, function(req,res) {
+app.get('/manageCategory',auth.checkAdmin, function(req,res) {
   res.render('manage_category',{data:req.session});
 })
 
-app.get('/addStaff',auth, function(req,res) {
+app.get('/addStaff',auth.checkAdmin, function(req,res) {
   res.render('add_staff',{data:req.session});
 })
 
-app.get('/manageStaff',auth, function(req,res) {
+app.get('/manageStaff',auth.checkAdmin, function(req,res) {
   res.render('manage_staff',{data:req.session});
 })
 
-app.get('/addPass',auth, function(req,res) {
+app.get('/addPass',auth.checkAdmin, function(req,res) {
   res.render('add_pass',{data:req.session});
 })
 
-app.get('/managePass',auth, function(req,res) {
+app.get('/managePass',auth.checkAdmin, function(req,res) {
   res.render('manage_pass',{data:req.session});
 })
 
-app.get('/passCount',auth, function(req,res) {
+app.get('/passCount',auth.checkAdmin, function(req,res) {
   res.render('passCount',{data:req.session});
 })
 
-app.get('/passSales',auth, function(req,res) {
+app.get('/passSales',auth.checkAdmin, function(req,res) {
   res.render('passSales',{data:req.session});
 })
 
-app.get('/manageReceipts',auth, function(req,res) {
+app.get('/manageReceipts',auth.checkAdmin, function(req,res) {
   res.render('manageReceipts',{data:req.session});
 })
 
-app.get('/receiptCount',auth, function(req,res) {
+app.get('/receiptCount',auth.checkAdmin, function(req,res) {
   res.render('receiptCount',{data:req.session});
 })
 
-app.get('/receiptSales',auth, function(req,res) {
+app.get('/receiptSales',auth.checkAdmin, function(req,res) {
   res.render('receiptSales',{data:req.session});
 })
 
 // controllers //
 
-app.use('/addnewCategory',auth,adminController.addnewCategory);
+app.use('/addnewCategory',auth.checkAdmin,adminController.addnewCategory);
 
-app.use('/checkcategory',auth,adminController.checkcategory);
+app.use('/checkcategory',auth.checkAdmin,adminController.checkcategory);
 
-app.use('/showcategories',auth,adminController.showcategories);
+app.use('/showcategories',auth.checkAdmin,adminController.showcategories);
 
-app.use('/deleteCategory/:pro',auth,adminController.deleteCategory);
+app.use('/deleteCategory/:pro',auth.checkAdmin,adminController.deleteCategory);
 
-app.use('/addnewuser',auth,adminController.addnewuser);
+app.use('/addnewuser',auth.checkAdmin,adminController.addnewuser);
 
-app.use('/checkemail',auth,adminController.checkemail);
+app.use('/checkemail',auth.checkAdmin,adminController.checkemail);
 
-app.use('/showStaff',auth,adminController.showStaff);
+app.use('/showStaff',auth.checkAdmin,adminController.showStaff);
 
-app.use('/deleteStaff/:pro',auth,adminController.deleteStaff);
+app.use('/deleteStaff/:pro',auth.checkAdmin,adminController.deleteStaff);
 
-app.use('/categoryOptions',auth,adminController.categoryOptions);
+app.use('/categoryOptions',auth.checkAdmin,adminController.categoryOptions);
 
-app.use('/addnewpass',auth,adminController.addnewpass);
+app.use('/addnewpass',auth.checkAdmin,adminController.addnewpass);
 
-app.use('/showPass',auth,adminController.showPass);
+app.use('/showPass',auth.checkAdmin,adminController.showPass);
 
-app.use('/deletePass/:pro',auth,adminController.deletePass);
+app.use('/deletePass/:pro',auth.checkAdmin,adminController.deletePass);
 
-app.use('/FindpassesCount',auth,adminController.FindpassesCount);
+app.use('/FindpassesCount',auth.checkAdmin,adminController.FindpassesCount);
 
-app.use('/FindpassesSale',auth,adminController.FindpassesSale);
+app.use('/FindpassesSale',auth.checkAdmin,adminController.FindpassesSale);
 
-app.use('/showReceipts',auth,adminController.showReceipts);
+app.use('/showReceipts',auth.checkAdmin,adminController.showReceipts);
 
-app.use('/FindreceiptCount',auth,adminController.FindreceiptCount);
+app.use('/FindreceiptCount',auth.checkAdmin,adminController.FindreceiptCount);
 
-app.use('/FindreceiptSale',auth,adminController.FindreceiptSale);
+app.use('/FindreceiptSale',auth.checkAdmin,adminController.FindreceiptSale);
 
-app.use('/deleteReceipt/:pro',auth,adminController.deleteReceipt);
+app.use('/deleteReceipt/:pro',auth.checkAdmin,adminController.deleteReceipt);
 
 module.exports = app;

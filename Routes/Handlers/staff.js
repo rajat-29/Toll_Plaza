@@ -8,22 +8,22 @@ var auth = require('../../MiddleWares/auth');
 
 let staffController = require('../../Controllers/staff');
 
-app.get('/addReceipts',auth, function(req,res) {
+app.get('/addReceipts',auth.checkStaff, function(req,res) {
 	res.render('addReceipts',{data:req.session});
 })
 
-app.get('/passUser',auth, function(req,res) {
+app.get('/passUser',auth.checkStaff, function(req,res) {
   res.render('passUser',{data:req.session});
 })
 
 // controllers //
 
-app.use('/addnewreceipt',auth,staffController.addnewreceipt);
+app.use('/addnewreceipt',auth.checkStaff,staffController.addnewreceipt);
 
-app.use('/twoWayCheck',auth,staffController.twoWayCheck);
+app.use('/twoWayCheck',auth.checkStaff,staffController.twoWayCheck);
 
-app.use('/passVehicle',auth,staffController.passVehicle);
+app.use('/passVehicle',auth.checkStaff,staffController.passVehicle);
 
-app.use('/reducePassBalance',auth,staffController.reducePassBalance);
+app.use('/reducePassBalance',auth.checkStaff,staffController.reducePassBalance);
 
 module.exports = app;

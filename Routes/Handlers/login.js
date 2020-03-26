@@ -8,15 +8,15 @@ var auth = require('../../MiddleWares/auth');
 
 let loginController = require('../../Controllers/login');
 
-app.get('/home',auth, function (req,res) {
+app.get('/home',auth.checkSession, function (req,res) {
   res.render('dashboard',{data:req.session});
 })
 
-app.get('/changePassword',auth, function(req,res) {
+app.get('/changePassword',auth.checkSession, function(req,res) {
       res.render('changePassword',{data:req.session});
 })
 
-app.get('/logout_person',auth, function(req,res) {
+app.get('/logout_person',auth.checkSession, function(req,res) {
     req.session.isLogin = 0;
     req.session.destroy();
     res.render('login');
@@ -26,14 +26,14 @@ app.get('/logout_person',auth, function(req,res) {
 
 app.use('/checkLogin',loginController.checkLogin);
 
-app.use('/changePassword',auth,loginController.changePassword);
+app.use('/changePassword',auth.checkSession,loginController.changePassword);
 
-app.use('/totalNoofUsers',auth,loginController.totalNoofUsers);
+app.use('/totalNoofUsers',auth.checkSession,loginController.totalNoofUsers);
 
-app.use('/totalNoofCategory',auth,loginController.totalNoofCategory);
+app.use('/totalNoofCategory',auth.checkSession,loginController.totalNoofCategory);
 
-app.use('/totalNoofPasses',auth,loginController.totalNoofPasses);
+app.use('/totalNoofPasses',auth.checkSession,loginController.totalNoofPasses);
 
-app.use('/totalReceiptsToday',auth,loginController.totalReceiptsToday);
+app.use('/totalReceiptsToday',auth.checkSession,loginController.totalReceiptsToday);
 
 module.exports = app;
