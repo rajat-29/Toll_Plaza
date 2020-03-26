@@ -1,5 +1,5 @@
-var submitStudent = document.getElementById('submitStudent');
-var allowStudent = document.getElementById('allowStudent');
+var submitVechile = document.getElementById('submitVechile');
+var allowVechile = document.getElementById('allowVechile');
 var vehicle_category = document.getElementById('vehicle_category');
 var vehicle_number = document.getElementById('vehicle_number');
 var trip_way = document.getElementById('trip_way');
@@ -37,7 +37,7 @@ function catValue()
 	}
 }
 
-submitStudent.addEventListener("click", function() {
+submitVechile.addEventListener("click", function() {
 
 	if(vehicle_number.value == '' || receipt_cost.value == '')
 	{
@@ -132,22 +132,15 @@ function twoWaycheck()
 	obj.vehicleNumber = vehicle_number.value;
 	obj.entryDate = today;
 
-
 	var request = new XMLHttpRequest();
     request.open('POST',"/staff/twoWayCheck");
     request.setRequestHeader("Content-Type","application/json");
     request.send(JSON.stringify(obj))
     request.addEventListener("load",function() {
         var commArr = request.responseText;
-        if(commArr == 'true')
-        {
-        	document.getElementById("email_info").style.display = 'visible';
-			document.getElementById("email_info").style.display = 'block';
-			document.getElementById("email_info").style.marginTop = '10px';
-			document.getElementById("email_info").style.marginBottom = '10px';
-			display_email.innerHTML= "Two Way Exists Allow";
-			document.getElementById('submitStudent').style.visibility = 'hidden';
-			document.getElementById('allowStudent').style.visibility = 'visible';
+        if(commArr == 'true') {
+			document.getElementById('submitVechile').style.visibility = 'hidden';
+			document.getElementById('allowVechile').style.visibility = 'visible';
         }
     });  
 }
@@ -157,8 +150,18 @@ function getMonths(mno) {
     return month[mno-1];
 }
 
-
-allowStudent.addEventListener("click", function() {
-    alert("New Receipt Is Added");
-    location.reload();
+allowVechile.addEventListener("click", function() {
+    $.confirm({
+	      title: 'New Receipt ?',
+	      content: "New Receipt Is Added !! ",
+	      draggable: true,
+	      buttons: {
+	        OK: {
+	            btnClass: 'btn-danger any-other-class',
+	             action: function () { 
+	             	location.reload();     
+	          }
+	          },
+	          }
+	});
 })
