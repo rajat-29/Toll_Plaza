@@ -24,16 +24,39 @@ app.get('/logout_person',auth.checkSession, function(req,res) {
 
 // controllers //
 
-app.use('/checkLogin',loginController.checkLogin);
+app.use(
+	'/checkLogin',
+	loginController.checkLogin
+);
 
-app.use('/changePassword',auth.checkSession,loginController.changePassword);
+app.use(
+	'/changePassword',
+	auth.checkSession,
+	loginController.changePassword
+);
 
-app.use('/totalNoofUsers',auth.checkSession,loginController.totalNoofUsers);
+app.use(
+	'/totalNoofUsers',
+	auth.checkSession,
+	loginController.totalNoofUsers
+);
 
-app.use('/totalNoofCategory',auth.checkSession,loginController.totalNoofCategory);
+app.use(
+	'/totalNoofCategory',
+	auth.checkSession,
+	loginController.totalNoofCategory
+);
 
-app.use('/totalNoofPasses',auth.checkSession,loginController.totalNoofPasses);
+app.use(
+	'/totalNoofPasses',
+	auth.checkSession,
+	loginController.totalNoofPasses
+);
 
-app.use('/totalReceiptsToday',auth.checkSession,loginController.totalReceiptsToday);
+app.use(
+	'/totalReceiptsToday',
+	auth.checkSession,
+	loginController.totalReceiptsToday
+);
 
 module.exports = app;

@@ -54,40 +54,112 @@ app.get('/receiptSales',auth.checkAdmin, function(req,res) {
 
 // controllers //
 
-app.use('/addnewCategory',auth.checkAdmin,adminController.addnewCategory);
+app.use(
+  '/addnewCategory',
+  auth.checkAdmin,
+  adminController.addnewCategory
+);
 
-app.use('/checkcategory',auth.checkAdmin,adminController.checkcategory);
+app.use(
+  '/checkcategory',
+  auth.checkAdmin,
+  adminController.checkcategory
+);
 
-app.use('/showcategories',auth.checkAdmin,adminController.showcategories);
+app.use(
+  '/showcategories',
+  auth.checkAdmin,
+  adminController.showcategories
+);
 
-app.use('/deleteCategory/:pro',auth.checkAdmin,adminController.deleteCategory);
+app.use(
+  '/deleteCategory/:pro',
+  auth.checkAdmin,
+  adminController.deleteCategory
+);
 
-app.use('/addnewuser',auth.checkAdmin,adminController.addnewuser);
+app.use(
+  '/addnewuser',
+  auth.checkAdmin,
+  adminController.addnewuser
+);
 
-app.use('/checkemail',auth.checkAdmin,adminController.checkemail);
+app.use(
+  '/checkemail',
+  auth.checkAdmin,
+  adminController.checkemail
+);
 
-app.use('/showStaff',auth.checkAdmin,adminController.showStaff);
+app.use(
+  '/showStaff',
+  auth.checkAdmin,
+  adminController.showStaff
+);
 
-app.use('/deleteStaff/:pro',auth.checkAdmin,adminController.deleteStaff);
+app.use(
+  '/deleteStaff/:pro',
+  auth.checkAdmin,
+  adminController.deleteStaff
+);
 
-app.use('/categoryOptions',auth.checkAdmin,adminController.categoryOptions);
+app.use(
+  '/categoryOptions',
+  auth.checkAdmin,
+  adminController.categoryOptions
+);
 
-app.use('/addnewpass',auth.checkAdmin,adminController.addnewpass);
+app.use(
+  '/addnewpass',
+  auth.checkAdmin,
+  adminController.addnewpass
+);
 
-app.use('/showPass',auth.checkAdmin,adminController.showPass);
+app.use(
+  '/showPass',
+  auth.checkAdmin,
+  adminController.showPass
+);
 
-app.use('/deletePass/:pro',auth.checkAdmin,adminController.deletePass);
+app.use(
+  '/deletePass/:pro',
+  auth.checkAdmin,
+  adminController.deletePass
+);
 
-app.use('/FindpassesCount',auth.checkAdmin,adminController.FindpassesCount);
+app.use(
+  '/FindpassesCount',
+  auth.checkAdmin,
+  adminController.FindpassesCount
+);
 
-app.use('/FindpassesSale',auth.checkAdmin,adminController.FindpassesSale);
+app.use(
+  '/FindpassesSale',
+  auth.checkAdmin,
+  adminController.FindpassesSale
+);
 
-app.use('/showReceipts',auth.checkAdmin,adminController.showReceipts);
+app.use(
+  '/showReceipts',
+  auth.checkAdmin,
+  adminController.showReceipts
+);
 
-app.use('/FindreceiptCount',auth.checkAdmin,adminController.FindreceiptCount);
+app.use(
+  '/FindreceiptCount',
+  auth.checkAdmin,
+  adminController.FindreceiptCount
+);
 
-app.use('/FindreceiptSale',auth.checkAdmin,adminController.FindreceiptSale);
+app.use(
+  '/FindreceiptSale',
+  auth.checkAdmin,
+  adminController.FindreceiptSale
+);
 
-app.use('/deleteReceipt/:pro',auth.checkAdmin,adminController.deleteReceipt);
+app.use(
+  '/deleteReceipt/:pro',
+  auth.checkAdmin,
+  adminController.deleteReceipt
+);
 
 module.exports = app;
