@@ -146,6 +146,7 @@ function twoWaycheck()
 			document.getElementById("email_info").style.marginTop = '10px';
 			document.getElementById("email_info").style.marginBottom = '10px';
 			display_email.innerHTML= "Two Way Exists Allow";
+			document.getElementById('submitStudent').style.visibility = 'hidden';
 			document.getElementById('allowStudent').style.visibility = 'visible';
         }
     });  
@@ -158,6 +159,6 @@ function getMonths(mno) {
 
 
 allowStudent.addEventListener("click", function() {
-        alert("New Receipt Is Added");
-         window.location = "/staff/addReceipts";
+    alert("New Receipt Is Added");
+    location.reload();
 })
