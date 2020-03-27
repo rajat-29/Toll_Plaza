@@ -1,17 +1,5 @@
 let adminService = require('../Services/admin');
 
-exports.showcategories = (req, res) => {
-  adminService.showcategories({
-
-  },req,res);
-}
-
-exports.deleteCategory = (req, res) => {
-  adminService.deleteCategory({
-    "_id": req.params.pro.toString(),
-  },req,res);  
-}
-
 exports.addnewuser = (req, res) => {
   adminService.addnewuser({
     
