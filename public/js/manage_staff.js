@@ -11,25 +11,25 @@
       },
       "columns": [
       {
-        "data" : "name",
+        "data" : "name","orderable": false
       },
       {
-        "data" : "email",
+        "data" : "email","orderable": false
       },
       {
-        "data" : "address",
+        "data" : "address","orderable": false
       },
       {
-        "data" : "phone", 
+        "data" : "phone", "orderable": false
       },
       {
-        "data" : "gender", 
+        "data" : "gender", "orderable": false
       },
       {
-        "data" : "role", 
+        "data" : "role", "orderable": false
       },
       {
-        "data" : null
+        "data" : null,"orderable": false
       },
       ],
       "columnDefs": [{

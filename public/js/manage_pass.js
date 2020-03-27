@@ -11,28 +11,28 @@
       },
       "columns": [
       {
-        "data" : "category",
+        "data" : "category","orderable": false
       },
       {
-        "data" : "registration",
+        "data" : "registration","orderable": false
       },
       {
-        "data" : "issueDate",
+        "data" : "issueDate","orderable": false
       },
       {
-        "data" : "name",
+        "data" : "name","orderable": false
       },
       {
-        "data" : "address",
+        "data" : "address","orderable": false
       },
       {
-        "data" : "phone", 
+        "data" : "phone", "orderable": false
       },
       {
-        "data" : "balance", 
+        "data" : "balance", "orderable": false
       },
       {
-        "data" : null
+        "data" : null, "orderable": false
       },
       ],
       "columnDefs": [{
