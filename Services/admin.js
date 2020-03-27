@@ -6,28 +6,6 @@ var users = require('../Models/userSchema');
 var passes = require('../Models/passSchema');
 var receipts = require('../Models/receiptSchema');
 
-exports.addnewCategory = async function (query, req, res) {
-  category.create(req.body,function(error,result) {
-    if(error)
-      throw error;
-    else{
-     res.send("data saved");
-    }
-  })
-}
-
-exports.checkcategory = async function (query, req, res) {
-  	category.findOne(query, function(error,result) {
-        if(error)
-        throw error;
-
-      if(!result)
-        res.send("false");
-      else 
-          res.send("true");
-   	})
-}
-
 exports.showcategories = async function (q, req, res) {
   	 let query = {};
     let params = {};

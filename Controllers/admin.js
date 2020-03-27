@@ -1,17 +1,5 @@
 let adminService = require('../Services/admin');
 
-exports.addnewCategory = (req,res) => {
-  adminService.addnewCategory({
-
-  },req,res);
-}
-
-exports.checkcategory = (req, res) => {
-  adminService.checkcategory({
-    name: req.body.name
-  },req,res);
-}
-
 exports.showcategories = (req, res) => {
   adminService.showcategories({
 

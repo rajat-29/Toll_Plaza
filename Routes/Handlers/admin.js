@@ -55,18 +55,6 @@ app.get('/receiptSales',auth.checkAdmin, function(req,res) {
 // controllers //
 
 app.use(
-  '/addnewCategory',
-  auth.checkAdmin,
-  adminController.addnewCategory
-);
-
-app.use(
-  '/checkcategory',
-  auth.checkAdmin,
-  adminController.checkcategory
-);
-
-app.use(
   '/showcategories',
   auth.checkAdmin,
   adminController.showcategories
