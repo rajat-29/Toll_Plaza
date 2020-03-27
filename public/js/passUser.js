@@ -34,12 +34,6 @@ function catValue()
 
 allowVehicle.addEventListener("click", function() {
 
-	if(vehicle_number.value == '')
-	{
-		alert("Field is Empty");
-		return;
-	}
-
 	var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1;
@@ -139,7 +133,7 @@ function checkForPass()
 		    	});
 	        }
 	        else
-	        	document.getElementById('allowCar').style.visibility = 'visible';
+	        	document.getElementById('allowVehicle').style.visibility = 'visible';
 	    }
     });  
 }

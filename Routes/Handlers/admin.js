@@ -104,7 +104,7 @@ app.use(
 
 app.use(
   '/categoryOptions',
-  auth.checkAdmin,
+  auth.checkSession,
   adminController.categoryOptions
 );
 

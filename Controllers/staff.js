@@ -12,7 +12,8 @@ exports.addnewreceipt = (req,res) => {
 exports.twoWayCheck = (req,res) => {
   staffService.twoWayCheck({
     vehicleNumber: req.body.vehicleNumber,
-    entryDate: req.body.entryDate
+    entryDate: req.body.entryDate,
+    trip: "Two Way",
   },req,res);
 }
 
