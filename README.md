@@ -1,5 +1,31 @@
 # Toll_Management_System
+
 Toll Management System to manage toll plaza and vehicle passes using bootstrap,Nodejs,MongoDb!!
+
+## How To Run?
+
+To run this website run this command on command prompt on root folder.
+
+```
+npm start or node app.js
+```
+
+It will run under the url http://127.0.0.1:3000/
+
+## Login Details
+
+Email and Password for Website:<br>
+
+Admin :<br>
+Email :admin@cq.com<br>
+Password: admincq<br>
+
+User:<br>
+Email : bro@gmail.com<br>
+Password: admincq<br>
+
+Email :ajay@cq.com<br>
+Password: admincq<br>
 
 ## Features
 <ul>
@@ -13,9 +39,6 @@ Toll Management System to manage toll plaza and vehicle passes using bootstrap,N
   <li>Open Source</li>
 </ul>
 
-## How To Run?
-It will run under the url http://127.0.0.1:3000/
-
 ## How to Use ?
 <ol type="number">
 <li>Use mongorestore command to add database to your Local Machine.</li>
@@ -24,27 +47,57 @@ It will run under the url http://127.0.0.1:3000/
 <li>Run local host on port number 3000</li>
 </ol>
 
+## Pre-requisites
+
+- Node JS (Tested on v12.14.0)
+- Mongoose
+- Pre-requisites or Dependencies(Below)
+
 ## Extra Dependencies :
 
 <ul>
   <li>Mongoose</li>
   <li>Express</li>
   <li>Express-Session</li>
+  <li>PATH</li>
   <li>EJS</li>
+  <li>EJS Mate</li>
   <li>Bcrypt Module</li>
+  <li>HTTP</li>
 </ul>
 
-## Login :
+- Express
 
-  ### Admin :
-  <ul>
-      <li> ID - admin@cq.com </li>
-      <li> Password - admincq </li>
-  </ul>
-  
-  ### Staff : 
-  <ul>
-    <li>ID - bro@cq.com </li>
-    <li> Password - admincq </li>
-  </ul>
+```
+npm install express
+```
 
+- EJS
+
+```
+npm install ejs
+```
+
+- Express-Session
+
+```
+npm install express-session
+```
+
+- Mongoose
+
+```
+npm install mongoose
+```
+
+- Dotenv
+
+```
+npm install dotenv
+```
+
+- Bcrypt
+
+```
+npm install bcrypt  / npm i bcrypt
+```
