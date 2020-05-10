@@ -1,75 +1,57 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="utf-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Dashboard</title>
-    <link rel="icon" href="/images/icon.jpeg">
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
-    <link href="css/style.css" rel="stylesheet" />
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-</head>
-    <body class="body" onload="fetchNumber()">
-        <%- include ('partials/navbar.ejs') %>
-        <div class="content-wrapper">
-            <div class="container">
+<%- layout('layout/layout.ejs') %>
 
-                <% if(data.role == "Admin"){ %>  
-                    <div class="col-md-12">
-                        <center><h4 class="header-line">ADMIN DASHBOARD</h4></center>
-                    </div>
-                <%  } %>
+<%- include('partials/navbar.ejs') %>
 
-                <% if(data.role == "Staff"){ %>  
-                    <div class="col-md-12">
-                        <center><h4 class="header-line">User DASHBOARD</h4></center>
-                    </div>
-                <%  } %>
-            
-                <div class="row">
-                    <div class="col-md-3 col-sm-3">
-                        <div class="alert alert-success back-widget-set text-center">
-                            <i class="fa fa-bars fa-5x"></i>
-                            <h3 id="todayReceipts"></h3>
-                            Today
-                        </div>
-                    </div> 
+<div class="content-wrapper">
+    <div class="container">
 
-                    <div class="col-md-3 col-sm-3">
-                        <div class="alert alert-info back-widget-set text-center">
-                            <i class="fa fa-bars fa-5x"></i>
-                            <h3 id="totalStaff"></h3>
-                            Staff
-                        </div>
-                    </div> 
-
-                    <div class="col-md-3 col-sm-3">
-                        <div class="alert alert-primary back-widget-set text-center">
-                            <i class="fa fa-bars fa-5x"></i>
-                            <h3 id="totalCategories"></h3>
-                            Categories
-                        </div>
-                    </div> 
-
-                    <div class="col-md-3 col-sm-3">
-                        <div class="alert alert-warning back-widget-set text-center">
-                            <i class="fa fa-bars fa-5x"></i>
-                            <h3 id="totalPasses"></h3>
-                            Passes
-                        </div>
-                    </div> 
-                </div>
+        <% if(data.role == "Admin"){ %>  
+            <div class="col-md-12">
+                <center><h4 class="header-line">ADMIN DASHBOARD</h4></center>
             </div>
+        <%  } %>
+
+        <% if(data.role == "Staff"){ %>  
+            <div class="col-md-12">
+                <center><h4 class="header-line">User DASHBOARD</h4></center>
+            </div>
+        <%  } %>
+            
+        <div class="row">
+
+            <div class="col-md-3 col-sm-3">
+                <div class="alert alert-success back-widget-set text-center">
+                    <i class="fa fa-bars fa-5x"></i>
+                    <h3 id="todayReceipts"></h3>
+                        Today
+                </div>
+            </div> 
+
+            <div class="col-md-3 col-sm-3">
+                <div class="alert alert-info back-widget-set text-center">
+                    <i class="fa fa-bars fa-5x"></i>
+                    <h3 id="totalStaff"></h3>
+                         Staff
+                </div>
+            </div> 
+
+            <div class="col-md-3 col-sm-3">
+                <div class="alert alert-primary back-widget-set text-center">
+                    <i class="fa fa-bars fa-5x"></i>
+                    <h3 id="totalCategories"></h3>
+                        Categories
+                </div>
+            </div> 
+
+            <div class="col-md-3 col-sm-3">
+                <div class="alert alert-warning back-widget-set text-center">
+                    <i class="fa fa-bars fa-5x"></i>
+                     <h3 id="totalPasses"></h3>
+                        Passes
+                </div>
+            </div> 
         </div>
+    </div>
+</div>
 
-        <%- include('partials/footbar.ejs') %>
-
-    <script src="js/bootstrap.js" async></script> 
-    <script src="js/dashboard.js" async></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-
-</body>
-</html>
+<%- include('partials/footbar.ejs') %>

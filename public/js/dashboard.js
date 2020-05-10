@@ -136,3 +136,5 @@ function getMonths(mno) {
     var month = ["Jan","Feb","March","April","May","June","July","Aug","Sep","Oct","Nov","Dec"];
     return month[mno-1];
 }
+
+fetchNumber();

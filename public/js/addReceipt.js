@@ -165,3 +165,5 @@ allowVechile.addEventListener("click", function() {
 	          }
 	});
 })
+
+fetchselectoptions();
