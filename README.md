@@ -150,3 +150,71 @@ npm install bcrypt  / npm i bcrypt
 | receiptdate   | Date   |
 | trip          | String |
 | cost          | Number |
+
+
+
+## Directory
+
+```bash
+|___ Root
+
+|   |
+|   |--- Controller
+|   |    |--- Admin.js
+|   |    |--- Login.js
+|   |    |--- Staff.js
+|   |
+|   |--- Dump (Mongoose Dump) (Dump)
+|   |
+|   |--- Middlewares
+|   |    |--- auth.js
+|   |
+|   |--- Models
+|   |    |--- CategorySchema.js
+|   |    |--- PassSchema.js
+|   |    |--- ReceiptSchema.js
+|   |    |--- UserSchema.js
+|   |
+|   |--- Public
+|   |    |--- css (Static)
+|   |    |--- images (Staic)
+|   |    |--- js (Static)
+|   |
+|   |--- Routes
+|   |    |--- Handlers
+|   |    |    |--- Admin.ejs
+|   |    |    |--- Login.ejs
+|   |    |    |--- Staff.ejs
+|   |    |--- index.js
+|   |
+|   |--- Server.js
+|   |
+|   |--- Services
+|   |    |--- Admin.js
+|   |    |--- Login.js
+|   |    |--- Staff.js
+|   |
+|   |--- Views
+|   |    |--- layout
+|   |    |    |--- layout.ejs
+|   |    | 
+|   |    |--- partials
+|   |    |    |--- footbar.ejs
+|   |    |    |--- header.ejs
+|   |    |    |--- navbar.ejs
+|   |    | 
+|   |    |--- add_pass.ejs
+|   |    |--- add_staff.ejs
+|   |    |--- addReceipt.ejs
+|   |    |--- changePassword.ejs
+|   |    |--- dashboard.ejs
+|   |    |--- login.ejs
+|   |    |--- manage_pass.ejs
+|   |    |--- manage_staff.ejs
+|   |    |--- manageReceipt.ejs
+|   |    |--- passCount.ejs
+|   |    |--- passSales.ejs
+|   |    |--- passUser.ejs
+|   |    |--- receiptCount.ejs
+|   |    |--- receiptSales.ejs
+```
