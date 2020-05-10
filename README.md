@@ -101,3 +101,52 @@ npm install dotenv
 ```
 npm install bcrypt  / npm i bcrypt
 ```
+
+
+## Schema
+
+<h4><b>User Schema</b></h4>
+
+| Name         | Type   | Required | Unique | Encrpyted |
+| ------------ | ------ | -------- | ------ | --------- |
+| Name         | String | Yes      | No     | No        |
+| Email        | String | Yes      | Yes    | No        |
+| Password     | String | Yes      | No     | Yes       |
+| Address      | String | No       | No     | No        |
+| City         | String | Yes      | No     | No        |
+| Gender       | String | Yes      | No     | No        |
+| Role         | String | Yes      | No     | No        |
+| Phone        | String | No       | No     | No        |
+
+<h4><b>Category Schema</b></h4>
+
+| Name          | Type   |
+| ------------- | ------ |
+| Name          | String |
+| Status        | String |
+| CreateBy      | String |
+
+<h4><b>Pass Schema</b></h4>
+
+| Name          | Type   |
+| ------------- | ------ |
+| Category      | String |
+| Registration  | String |
+| IssueDate     | Date   |
+| Name          | String |
+| Age           | String |
+| Address       | String |
+| Phone         | String |
+| Balance       | Number |
+
+<h4><b>Receipt Schema</b></h4>
+
+| Name          | Type   |
+| ------------- | ------ |
+| Category      | String |
+| vehicleNumber | String |
+| entryDate     | String |
+| entryTime     | String |
+| receiptdate   | Date   |
+| trip          | String |
+| cost          | Number |
