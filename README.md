@@ -157,7 +157,6 @@ npm install bcrypt  / npm i bcrypt
 
 ```bash
 |___ Root
-
 |   |
 |   |--- Controller
 |   |    |--- Admin.js

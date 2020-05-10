@@ -8,48 +8,40 @@ var auth = require('../../MiddleWares/auth');
 
 let adminController = require('../../Controllers/admin');
 
-app.get('/addCategory',auth.checkAdmin, function(req,res) {
-	res.render('add_category',{data:req.session});
-})
-
-app.get('/manageCategory',auth.checkAdmin, function(req,res) {
-  res.render('manage_category',{data:req.session});
-})
-
 app.get('/addStaff',auth.checkAdmin, function(req,res) {
-  res.render('add_staff',{data:req.session});
+  res.render('add_staff',{data:req.session,title : 'Add Staff'});
 })
 
 app.get('/manageStaff',auth.checkAdmin, function(req,res) {
-  res.render('manage_staff',{data:req.session});
+  res.render('manage_staff',{data:req.session,title : 'Manage Staff'});
 })
 
 app.get('/addPass',auth.checkAdmin, function(req,res) {
-  res.render('add_pass',{data:req.session});
+  res.render('add_pass',{data:req.session,title : 'Add Pass'});
 })
 
 app.get('/managePass',auth.checkAdmin, function(req,res) {
-  res.render('manage_pass',{data:req.session});
+  res.render('manage_pass',{data:req.session,title : 'Manage Pass'});
 })
 
 app.get('/passCount',auth.checkAdmin, function(req,res) {
-  res.render('passCount',{data:req.session});
+  res.render('passCount',{data:req.session,title : 'Pass Count'});
 })
 
 app.get('/passSales',auth.checkAdmin, function(req,res) {
-  res.render('passSales',{data:req.session});
+  res.render('passSales',{data:req.session,title : 'Pass Sales'});
 })
 
 app.get('/manageReceipts',auth.checkAdmin, function(req,res) {
-  res.render('manageReceipts',{data:req.session});
+  res.render('manageReceipts',{data:req.session,title : 'Manage Receipts'});
 })
 
 app.get('/receiptCount',auth.checkAdmin, function(req,res) {
-  res.render('receiptCount',{data:req.session});
+  res.render('receiptCount',{data:req.session,title : 'Receipt Count'});
 })
 
 app.get('/receiptSales',auth.checkAdmin, function(req,res) {
-  res.render('receiptSales',{data:req.session});
+  res.render('receiptSales',{data:req.session,title : 'Receipt Sales'});
 })
 
 // controllers //

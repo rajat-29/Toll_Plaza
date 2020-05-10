@@ -9,11 +9,11 @@ var auth = require('../../MiddleWares/auth');
 let staffController = require('../../Controllers/staff');
 
 app.get('/addReceipts',auth.checkStaff, function(req,res) {
-	res.render('addReceipts',{data:req.session});
+	res.render('addReceipts',{data:req.session,title : 'Add Receipt'});
 })
 
 app.get('/passUser',auth.checkStaff, function(req,res) {
-  res.render('passUser',{data:req.session});
+  res.render('passUser',{data:req.session,title : 'Pass User'});
 })
 
 // controllers //
