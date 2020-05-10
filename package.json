@@ -4,7 +4,8 @@
   "description": "Toll Management System to manage toll plaza and vehicle passes using bootstrap,Nodejs,MongoDb!!",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -26,9 +27,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "http": "0.0.0",
-    "minimist": "^1.2.5",
     "mongoose": "^5.8.9",
-    "morgan": "^1.10.0",
     "nodemon": "^2.0.2",
     "path": "^0.12.7"
   }
